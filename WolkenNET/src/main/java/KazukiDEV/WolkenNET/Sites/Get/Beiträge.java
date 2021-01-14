@@ -45,6 +45,17 @@ public class Beiträge implements Route {
 					m.put("titlebar", psql.getString("sublink"));
 					m.put("bbcode_text", BBCode.bbcode(psql.getString("bbcode_text").replaceAll("\\<[^>]*>", "")));
 					m.put("topicid", psql.getString("topic_id"));
+					String sql_topic = "SELECT * FROM `topics` WHERE `id`=?";
+					ResultSet sql_topic_rs = mysql.Query(sql_topic, psql.getString("topic_id"));
+					while(sql_topic_rs.next()) {
+						m.put("bc2", sql_topic_rs.getString("title"));
+						m.put("bc2_link", sql_topic_rs.getString("sublink"));
+						String sql_sites = "SELECT * FROM `sites` WHERE `id` = ?";
+						ResultSet sql_sites_rs = mysql.Query(sql_sites, sql_topic_rs.getString("groupid"));
+						sql_sites_rs.next();
+						m.put("bcsite", sql_sites_rs.getString("text"));
+						m.put("bclink", sql_sites_rs.getString("link"));
+					}
 					m.put("icon", psql.getString("user_id"));
 					m.put("timestamp", psql.getString("timestamp"));
 					m.put("banner", "");

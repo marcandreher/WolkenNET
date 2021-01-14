@@ -33,7 +33,7 @@ public class Themen implements Route {
 		String groupid = "";
 		try {
 			while (psql.next()) {
-				m.put("titlebar", psql.getString("sublink"));
+				m.put("titlebar", psql.getString("title"));
 				groupid = psql.getString("groupid");
 				m.put("groupid",groupid);
 				m.put("icon", psql.getString("icon"));
