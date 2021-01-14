@@ -32,10 +32,12 @@ public class Themen implements Route {
 		ResultSet psql = mysql.Query(sql, request.params(":topic"));
 		String groupid = "";
 		try {
+			int id = 0;
 			while (psql.next()) {
+				id = psql.getInt("id");
 				m.put("titlebar", psql.getString("title"));
 				groupid = psql.getString("groupid");
-				m.put("groupid",groupid);
+				m.put("groupid", groupid);
 				m.put("icon", psql.getString("icon"));
 				m.put("description", psql.getString("description"));
 				m.put("important", psql.getString("important"));
@@ -67,6 +69,9 @@ public class Themen implements Route {
 				}
 
 				this.m.put("conts", contarr);
+				
+				String addview_sql = "UPDATE `topics` SET `views` = `views` + 1 where `id` = ?";
+				mysql.Exec(addview_sql, new StringBuilder().append(psql.getInt("id")).toString());
 				
 				String sql_sites = "SELECT * FROM `sites` WHERE `id` = ?";
 				ResultSet sql_sites_rs = mysql.Query(sql_sites, groupid);
