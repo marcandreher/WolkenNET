@@ -1,6 +1,12 @@
 <#include "base.html">
 <div class="container container-home">
+    <#if home_bool = 1>
+    <div class="alert alert-secondary" role="alert">
+        ${home_alert}
+    </div>
+    </#if>
     <div class="row">
+        
     <div class="col-8 col-8-home">
         <#if loggedin=="false">
         <h3 class="text-home-header">Willkommen im WolkenNET</h3>
