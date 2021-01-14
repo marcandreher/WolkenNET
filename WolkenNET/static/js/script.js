@@ -44,6 +44,8 @@ $(document).ready(function(){
                 document.getElementById('inrr').innerHTML = 'Deine Email Adresse ist fehlerhaft.' + btn
             }else if(r=="re") {
                 document.getElementById('inrr').innerHTML = 'Ein interner Fehler ist aufgetreten, wir versuchen das so schnell wie möglich zu reparieren.' + btn
+            }else if(r=="rd") {
+                document.getElementById('inrr').innerHTML = 'Registrierungen sind momentan deaktiviert, versuche es bitte später nochmal.' + btn
             }
         }
           }

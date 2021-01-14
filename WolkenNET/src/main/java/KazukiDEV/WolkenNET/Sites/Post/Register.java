@@ -4,9 +4,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.ResultSet;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import KazukiDEV.WolkenNET.Content.Permissions;
 import KazukiDEV.WolkenNET.Content.mysql;
 import spark.Request;
 import spark.Response;
@@ -28,6 +30,16 @@ public class Register implements Route {
 	}
 
 	public Object handle(Request request, Response response) {
+		HashMap<String, Object> m = new HashMap<>();
+		if(Permissions.hasPermissions(request.cookie("session"), m, response)) {
+			response.redirect("/");
+			return null;
+		}
+		if((int)m.get("registrations") != 1) {
+			response.redirect("/?r=rd&open=register");
+			return null;
+		}
+		
 		try {
 			String username = request.queryParams("username");
 			String password = request.queryParams("password");
