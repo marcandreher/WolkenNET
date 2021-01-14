@@ -12,6 +12,22 @@ public class Permissions {
 		r.type("text/html");
 		App.sessionv++;
 		try {
+			String sql_settings = "SELECT * FROM `system_settings`";
+			ResultSet sql_rs = mysql.Query(sql_settings);
+
+			while (sql_rs.next()) {
+				int i = sql_rs.getInt("id");
+				if (i == 1) {
+					map.put("recaptcha", sql_rs.getString("value_string"));
+				} else if (i == 2) {
+					map.put("registrations", sql_rs.getInt("value_int"));
+				} else if (i == 3) {
+					map.put("home_alert", sql_rs.getString("value_string"));
+				} else if (i == 4) {
+					map.put("home_bool", sql_rs.getInt("value_int"));
+				}
+			}
+
 			String sql = "SELECT * FROM `users` WHERE `session` = ?";
 			ResultSet rs = mysql.Query(sql, cookie);
 			if (rs.next()) {
@@ -23,6 +39,7 @@ public class Permissions {
 				map.put("loggedin", "true");
 				return true;
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

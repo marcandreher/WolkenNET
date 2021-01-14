@@ -12,7 +12,7 @@
                 <form id="rl-form" action="/login" method="POST" class="form-signin">
                 <input type="text" name="email" class="form-control" placeholder="Email" required autofocus>
                 <input type="password" name="password" class="form-control" placeholder="Passwort" required>
-                <div class="g-recaptcha cap-ff" data-sitekey="6LdkoCoaAAAAADAzaEev951c63kM5Z8KhoJIzXj4"></div>
+                <div class="g-recaptcha cap-ff" data-sitekey="${recaptcha}"></div>
                 <button class="btn btn-lg btn-primary btn-block">
                     Anmelden</button>
                 <a href="#" class="pull-right need-help">Passwort zurücksetzen?</a>
@@ -42,7 +42,7 @@
                   <input type="checkbox" value="remember-me" required>
                   Außerdem stimmst du den <a href="/forenregeln">Forenregeln</a> zu
                 </label>
-                <div class="g-recaptcha cap-ff" data-sitekey="6LdkoCoaAAAAADAzaEev951c63kM5Z8KhoJIzXj4"></div>
+                <div class="g-recaptcha cap-ff" data-sitekey="${recaptcha}"></div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Registrieren</button>
                 </form>

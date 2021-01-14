@@ -36,7 +36,6 @@ public class SystemEinstellungen implements Route {
 			while (sql_rs.next()) {
 				int i = sql_rs.getInt("id");
 				if (i == 1) {
-
 					m.put("recaptcha", sql_rs.getString("value_string"));
 				} else if (i == 2) {
 					m.put("registrations", sql_rs.getInt("value_int"));
