@@ -840,7 +840,10 @@ a.forum-item-title:hover {
   color: #333;
   font-weight: 700
 }
-
+.breadcrumb {
+  background-color: white;
+  margin-bottom: 0px;
+}
 .inbox .btn-group {
   box-shadow: none
 }

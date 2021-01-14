@@ -30,15 +30,17 @@ public class Themen implements Route {
 
 		String sql = "SELECT * FROM `topics` WHERE `sublink` = ?";
 		ResultSet psql = mysql.Query(sql, request.params(":topic"));
+		String groupid = "";
 		try {
 			while (psql.next()) {
 				m.put("titlebar", psql.getString("sublink"));
-				m.put("groupid", psql.getString("groupid"));
+				groupid = psql.getString("groupid");
+				m.put("groupid",groupid);
 				m.put("icon", psql.getString("icon"));
 				m.put("description", psql.getString("description"));
 				m.put("important", psql.getString("important"));
 				m.put("banner", "");
-				String sql_count = "SELECT * FROM `contributions` WHERE `topic_id` = ?";
+				String sql_count = "SELECT * FROM `contributions` WHERE `topic_id` = ? ORDER BY `contributions`.`id` DESC";
 				ResultSet countset = mysql.Query(sql_count, new StringBuilder().append(psql.getInt("id")).toString());
 				ArrayList<Contribution> contarr = new ArrayList<Contribution>();
 				while (countset.next()) {
@@ -65,6 +67,12 @@ public class Themen implements Route {
 				}
 
 				this.m.put("conts", contarr);
+				
+				String sql_sites = "SELECT * FROM `sites` WHERE `id` = ?";
+				ResultSet sql_sites_rs = mysql.Query(sql_sites, groupid);
+				sql_sites_rs.next();
+				m.put("bcsite", sql_sites_rs.getString("text"));
+				m.put("bclink", sql_sites_rs.getString("link"));
 
 			}
 		} catch (SQLException e1) {
