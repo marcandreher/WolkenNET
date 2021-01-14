@@ -42,6 +42,7 @@ public class Tippsundtricks implements Route {
 	            t.setSublink(tags_rs.getString("sublink"));
 	            t.setGroupid(1 + "");
 	            t.setImportant(tags_rs.getString("important"));
+	            t.setViews(tags_rs.getInt("views"));
 	            int postcount = 0;
 	            String sql_count = "SELECT * FROM `contributions` WHERE `topic_id` = ?";
 				ResultSet countset = mysql.Query(sql_count, new StringBuilder().append(tags_rs.getInt("id")).toString());

@@ -16,6 +16,16 @@ public class Topic {
 	private String Important; // GETSET
 
 	private String posts;
+	
+	private int Views;
+	
+	public int getViews() {
+		return Views;
+	}
+	
+	public void setViews(int Views) {
+		this.Views = Views;
+	}
 
 	public String getPosts() {
 		return posts;
