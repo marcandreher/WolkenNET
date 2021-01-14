@@ -854,6 +854,9 @@ a.forum-item-title:hover {
 .col-8 {
   padding-top: 15px;
 }
+.mobile-posts {
+  display: none;
+}
 
 @media only screen and (max-width: 991px) {
   .inbox .mail_list .list-group-item .controls {
@@ -861,6 +864,11 @@ a.forum-item-title:hover {
   }
 }
 
+@media (max-width: 992px) {
+  .mobile-posts {
+    display: block;
+  }
+}
 
 @media (max-width: 991px) {
     .col-stats {
