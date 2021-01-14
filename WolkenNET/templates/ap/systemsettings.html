@@ -1,0 +1,27 @@
+<#include "base.html">
+        <div class="col">
+            <form action="/ap/settings" method="POST">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">ReCaptcha API Key</label>
+                    <input type="text" name="recaptcha"class="form-control" value="${recaptcha}">
+                    <small id="emailHelp" class="form-text text-muted">Nur den API Key des Clients.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Registrierung</label>
+                    <input type="text" name="registrations"class="form-control" value="${registrations}">
+                    <small id="emailHelp" class="form-text text-muted">True = 1, False = 0.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Home HTML Meldung</label>
+                    <input type="text" name="home_alert" class="form-control" value="${home_alert}">
+                    <small id="emailHelp" class="form-text text-muted">Kein BBCode erlaubt</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Home HTML Meldung aktivieren</label>
+                    <input type="text" name="home_bool"class="form-control" value="${home_bool}">
+                    <small id="emailHelp" class="form-text text-muted">True = 1, False = 0.</small>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Senden</button>
+            </form>
+	</div>
+</div>

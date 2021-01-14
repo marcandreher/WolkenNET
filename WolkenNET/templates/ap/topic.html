@@ -1,0 +1,40 @@
+<#include "base.html">
+        <div class="col">
+            
+            <div class="container-fluid">
+                <a href="/ap/topic/create"><button type="button" class="btn btn-primary btn-lg btn-block"><i class="fas fa-plus"></i> Erstelle ein neues Thema</button></a>
+                <br>
+                <table class="table table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Icon</th>
+                        <th scope="col">Sublink</th>
+                        <th scope="col">GroupID</th>
+                        <th scope="col">Important</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <#list tags>
+                        <#items as tag>
+                        
+                        <tr>
+                            <th scope="row">${tag.ID}</th>
+                            <td>${tag.title}</td>
+                            <td>${tag.description}</td>
+                            <td>${tag.icon}</td>
+                            <td>${tag.sublink}</td>
+                            <td>${tag.groupid}</td>
+                            <td>${tag.important}</td>
+                            <td><a href="/ap/topic/delete?id=${tag.ID}"><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></a> <a href="/ap/topic/edit?id=${tag.ID}"><button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button></a></td>
+                          </tr>
+
+                           </#items>
+                           </#list>
+                    </tbody>
+            </div>
+	</div>
+</div>

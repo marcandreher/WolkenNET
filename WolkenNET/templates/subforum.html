@@ -1,0 +1,60 @@
+<#include "base.html">
+<div class="container">
+<section class="content inbox">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card action_bar">
+                    <div class="body">
+                        <div class="row clearfix">
+
+                            <div class="col">
+                                <div class="input-group search">
+                                    <input type="text" class="form-control" placeholder="Suche nach Beiträgen im Thema: ${titlebar}">
+                                    <span class="input-group-addon">
+                                       
+                                    </span>
+                                </div>
+                            </div>                                                     
+                        </div>
+                    </div>
+                </div>
+            </div>           
+        </div>        
+        <div class="row clearfix">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <ul class="mail_list list-group list-unstyled">
+                    <#list conts>
+                       <#items as contss>
+                    <li class="list-group-item">
+                        <div class="media">
+                            <div class="pull-left">                                
+                            
+                                <div class="checkbox">
+                                    <a href="/profil/${contss.username}"><img src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg"class="img-responsive img-th img-rounded"
+                                    style="max-height: 50px; max-width: 50px;"></a>
+                                </div>
+                                
+                               
+                            </div>
+                            <div class="media-body">
+                                <div class="media-heading">
+                                    <a href="/beitrag/${contss.sublink}/${contss.userid}" class="m-r-10"> ${contss.sublink}</a>
+                                    <span class="badge bg-primary">Beitrag</span> <#if contss.perm = "10"><span class="badge bg-red">Admin</span></#if>
+                                    <small class="float-right text-muted"><time class="hidden-sm-down" datetime="2017">${contss.timestamp}</time><i class="zmdi zmdi-attachment-alt"></i> </small>
+                                </div>
+                                <p class="msg"> ${contss.bbcode_text} </p>
+                            </div>
+                        </div>
+                    </li>
+                    </#items>
+                    </#list>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</section>
+ </div>
+</div>
+    <#include "footer.html">

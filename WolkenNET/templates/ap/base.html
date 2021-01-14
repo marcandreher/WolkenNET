@@ -1,0 +1,38 @@
+<#if loggedin=="true">
+<!DOCTYPE html>
+<html lang="de">
+   <head>
+      <title>Admin Panel - ${titlebar}</title>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <link rel="icon" type="image/vnd.microsoft.icon" href="/img/favicon.ico">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">   
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+      <link href="/css/style.css" rel="stylesheet">
+      <link href="/css/ap.css" rel="stylesheet">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/3046fddc30.js" crossorigin="anonymous"></script>
+      
+   </head>
+   <body>
+<div class="wrapper">
+  <div class="container-fluid" style="padding-top: 20px;">
+
+    <div class="row">
+        <div class="col col-lg-2">
+            <div class="profile-card">
+                <img src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg" alt="user" class="profile-photo">
+                <h5>${titlebar}</h5>
+            	<h5><a href="#" class="text-white">${username}</a></h5>
+            </div>
+            <ul class="nav-news-feed">
+              <li><i class="fas fa-backward icon1"></i><div><a href="/">Gehe zur Hauptseite</a></div></li>
+              <li><i class="fas fa-tachometer-alt icon2"></i><div><a href="/ap/dashboard">Dashboard</a></div></li>
+              <li><i class="fas fa-sliders-h icon3"></i><div><a href="/ap/settings">System Einstellungen</a></div></li>
+              <li><i class="fas fa-biohazard icon4"></i><div><a href="/ap/topic">Themen Manager</a></div></li>
+            </ul>
+          
+        </div>
+  </#if>

@@ -1,0 +1,38 @@
+<#include "base.html">
+<div class="container container-home col-8-home col-8-imp bootstrap snippets bootdey">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="ibox-content forum-container">
+                       <#list tags>
+                       <#items as tag>
+                    <div class="forum-item <#if tag.important = "1">active</#if>">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="forum-icon">
+                                    <i class="${tag.icon} fa-2x"></i>
+                                </div>
+                                <a href="/thema/${tag.sublink}" class="forum-item-title">${tag.title}</a>
+                                <div class="forum-sub-title">${tag.description}</div>
+                            </div>
+                            
+                            <div class="col-md-1 forum-info">
+                                <span class="views-number">
+                                    ${tag.posts}
+                                </span>
+                                <div>
+                                    <small>posts</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </#items>
+                       </#list>
+                    
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <#include "footer.html">

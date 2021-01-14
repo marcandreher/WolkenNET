@@ -1,0 +1,68 @@
+<#include "base.html">
+<div class="container container-home">
+    <div class="row">
+    <div class="col-8 col-8-home">
+        <#if loggedin=="false">
+        <h3 class="text-home-header">Willkommen im WolkenNET</h3>
+        <#else>
+        <h3 class="text-home-header">Willkommen ${username}</h3>
+        </#if>
+        <p class="text-home">
+            Hallo, mein Name ist Corinna Herpers bin 43 Jahre alt. Als ich vor ca. 2 Jahren
+            psychisch erkrankte, versuchte ich mir Hilfe zu holen.<br>
+            Ob es im Internet, telefonisch oder offline war, traf ich immer wieder auf
+            Probleme und Wartezeit! Die meiste Zeit fühlte ich mich im Stich gelassen,
+            dieses möchte ich dir ersparen.<br>
+            Durch meine Erfahrungen habe ich diese Seite ins Leben gerufen.<br>
+            Aber dafür brauche ich deine Hilfe. Trage deine Erfahrungen bei und tausche
+            dich mit anderen aus. Dadurch hälst du die Seite mit am Leben
+        </p>
+        <h3>Das findest du auf meiner Seite:</h3>
+        <ul class="list-home">
+            <li>Du hast Erfahrungen mit <a href="">Medikamenten</a>?
+                <br><e class="text-desc">Hier kannst du deine Erfahrungen austauschen</e></li>
+            <li>Du suchst nach Möglichkeiten zum <a href="">Hilfesuchen</a>?
+                <br><e class="text-desc">Hier werden Anflaufstellen aufgelistet</e></li>
+            <li>Du suchst einen <a href="">Chatraum</a> zum austauschen?
+                 <br><e class="text-desc">Hier kannst du dich über Probleme oder Fortschritte austauschen</e></li>
+            <li>Du suchst <a href="/tippsundtricks">Tipps und Tricks</a> um deinen Alltag zu erleichtern?</li>
+        </ul>
+        <p>Diese Seite basiert zwar auf Erfahrungen, aber sie soll uns die Zeit zwischen den Terminen erleichtern</p>
+        <#if loggedin=="false">       
+        <p>Worauf wartest du noch?</p>
+        <a onlick="nav()" class="btn btn-rounded btn-info" data-toggle="modal" data-target=".bd-register-modal-sm">Registrieren</a>
+        <a href="#!" class="btn btn-rounded btn-info" data-toggle="modal" data-target=".bd-login-modal-sm">Einloggen</a>
+        </#if>
+        
+    </div>
+    <div class="col-4">
+        <div class="col-stats col">
+            <img src="/img/home-welcomer.jpg" class="img-fluid" alt="...">
+        </div>
+        <div class="col-stats col">
+            <div class="row">
+                <div class="col-4">
+                    <i class="fas fa-users fa-4x home-stats"></i>
+                </div>
+                <div class="col-8">
+                   <div class="status-home">Registrierte Nutzer:</div>
+                   <div class="value-home">${registered}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-stats col">
+            <div class="row">
+                <div class="col-4">
+                    <i class="fas fa-comments fa-4x home-stats"></i>
+                </div>
+                <div class="col-8">
+                   <div class="status-home">Nutzer im Chat:</div>
+                   <div class="value-home">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<#include "footer.html">

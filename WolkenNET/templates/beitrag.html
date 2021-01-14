@@ -1,0 +1,35 @@
+<#include "base.html">
+<div class="container">
+    <div class="row cn-profile">
+        <div class="col-lg-12 cn-col">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="">
+                       
+                    <div class="row col-8-home col-8-post">
+                        <div class="col-lg-4 col-xl-4">
+                            <div class="card-box text-center">
+                                <img src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
+                    
+                                <h4 class="mb-0 author-text <#if perm = "10">admin</#if>">${author_name}</h4>
+                                <p class="text-muted"><#if authority != "Kein Titel">${authority}</#if></p>
+                    
+                            </div> <!-- end card-box -->
+                    
+                    
+                        </div> <!-- end col-->
+                    
+                        <div class="col-lg-8 col-xl-8">
+                           
+                    
+                                            <div>${bbcode_text}</div>
+                                    
+                    
+                        </div> <!-- end col -->
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+
+    <#include "footer.html">

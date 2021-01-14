@@ -1,0 +1,32 @@
+<#include "base.html">
+        <div class="col">
+                <h1><i class="fas fa-edit"></i> Erstelle oder bearbeite ein Thema</h1>
+                <form method="post" action="/ap/topic">
+                    <div class="form-group">
+                      <label>Titel (&Uuml;berschrift)</label>
+                      <input type="name" name="title" value="${ttitle}" class="form-control">
+
+                      <label for="exampleInputPassword1">Beschreibung</label>
+                      <input type="name" name="description" value="${tdescription}" class="form-control">
+
+                      <label for="exampleInputPassword1">Icon (<a href="https://fontawesome.com/">Font Awesome</a>) (Ohne Tag)</label>
+                      <input type="name" name="icon" value="${ticon}" class="form-control">
+
+                      <label for="exampleInputPassword1">Sublink (/thema/sublink)</label>
+                      <input type="name" name="sublink" value="${tsublink}" class="form-control">
+                      
+                      <label for="exampleInputPassword1">GroupID (Wohin geh&ouml;rt das Thema)</label>
+                      <input type="name" name="groupid" value="${tgroupid}" class="form-control">
+
+                      <label for="exampleInputPassword1">Setzt das Thema zu einem Hauptthema (0=false,1=true)</label>
+                      <input type="name" name="important" value="${timportant}" class="form-control">
+
+                      <input type="hidden" name="type" value="${tt}" class="form-control">
+                      <input type="hidden" name="id" value="${tid}" class="form-control">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Senden</button>
+                  </form>
+            </div>
+           
+        </div>
