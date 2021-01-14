@@ -23,6 +23,7 @@ import KazukiDEV.WolkenNET.Sites.Get.AP.SystemEinstellungen;
 import KazukiDEV.WolkenNET.Sites.Get.AP.TopicManager;
 import KazukiDEV.WolkenNET.Sites.Post.Login;
 import KazukiDEV.WolkenNET.Sites.Post.Register;
+import KazukiDEV.WolkenNET.Sites.Post.AP.HandleSettings;
 import KazukiDEV.WolkenNET.Sites.Post.AP.HandleTopic;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateExceptionHandler;
@@ -104,6 +105,7 @@ public class App {
 		postroutes.put("/login", new Login());
 
 		postroutes.put("/ap/topic", new HandleTopic());
+		postroutes.put("/ap/settings", new HandleSettings());
 
 		for (Map.Entry<String, Route> entry : getroutes.entrySet())
 			Spark.get(entry.getKey(), entry.getValue());
