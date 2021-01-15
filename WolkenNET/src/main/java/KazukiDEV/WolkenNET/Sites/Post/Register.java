@@ -46,6 +46,11 @@ public class Register implements Route {
 			String password = request.queryParams("password");
 			String email = request.queryParams("email");
 			String country = request.queryParams("country");
+			
+			if(request.cookie("session") != null) {
+				response.redirect("/?r=re&open=register");
+				return null;
+			}
 	
 			if (!validate(email)) {
 				response.redirect("/?r=rie&open=register");
