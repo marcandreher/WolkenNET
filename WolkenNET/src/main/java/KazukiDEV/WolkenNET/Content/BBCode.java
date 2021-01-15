@@ -22,7 +22,7 @@ public class BBCode {
     
     bbMap.put("\\[list\\]", "<ol>");
     bbMap.put("\\[/list\\]", "</ol>");
-    bbMap.put("\\[li\\](.+?)\\[/li\\]", "<li>$1</li>");
+    bbMap.put("\\[li\\](.+?)\\[/li\\]", "<li class=\"li-p\">$1</li>");
     
     bbMap.put("\\[indent\\](.+?)\\[/indent\\]", "<div style=\"text-indent: 50px;\">$1</div>");
     bbMap.put("\\[quote\\](.+?)\\[/quote\\]", "<blockquote>$1</blockquote>");

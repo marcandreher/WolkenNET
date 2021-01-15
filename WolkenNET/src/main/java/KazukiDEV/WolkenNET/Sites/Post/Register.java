@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import KazukiDEV.WolkenNET.Content.Auth;
 import KazukiDEV.WolkenNET.Content.Permissions;
 import KazukiDEV.WolkenNET.Content.mysql;
 import spark.Request;
@@ -51,7 +52,7 @@ public class Register implements Route {
 				return null;
 			}
 	
-			String session = randomString(30);
+			String session = Auth.generateSessionCookie();
 			
 			String sql_us_ch = "SELECT * FROM `users` WHERE `username` = ?";
 			ResultSet rs_us_ch = mysql.Query(sql_us_ch, username);
@@ -98,14 +99,6 @@ public class Register implements Route {
 			response.redirect("/?r=re&open=register");
 			return null;
 		}
-	}
-
-	String randomString(int len) {
-		StringBuilder sb = new StringBuilder(len);
-		for (int i = 0; i < len; i++)
-			sb.append("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-					.charAt(rnd.nextInt("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".length())));
-		return sb.toString();
 	}
 
 	public String MD5(String md5) {

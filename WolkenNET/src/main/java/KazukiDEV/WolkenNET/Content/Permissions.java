@@ -28,7 +28,7 @@ public class Permissions {
 				}
 			}
 
-			String sql = "SELECT * FROM `users` WHERE `session` = ?";
+			String sql = "SELECT * FROM `users` WHERE `session` = ? AND `banned` = 0";
 			ResultSet rs = mysql.Query(sql, cookie);
 			if (rs.next()) {
 				map.put("username", rs.getString("username"));

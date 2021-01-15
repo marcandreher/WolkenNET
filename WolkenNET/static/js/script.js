@@ -26,6 +26,8 @@ $(document).ready(function(){
                 document.getElementById('inr').innerHTML = 'Die angegebenen Daten sind Fehlerhaft.' + btn
             }else if(l=="ll") {
                 document.getElementById('inr').innerHTML = 'Dein Gerät wurde für das einloggen kurzzeitig gesperrt.' + btn
+            }else if(l=="lub") {
+                document.getElementById('inr').innerHTML = 'Dein Nutzer Account wurde gesperrt, für weitere Informationen schreibe uns eine Email <a href="mailto:info@wolkennet.de">info@wolkennet.de</a>' + btn
             }
         }
         var r = qs["r"];

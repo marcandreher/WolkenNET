@@ -9,6 +9,7 @@ import org.apache.log4j.PropertyConfigurator;
 import KazukiDEV.WolkenNET.Config.Config;
 import KazukiDEV.WolkenNET.Config.u;
 import KazukiDEV.WolkenNET.Content.Color;
+import KazukiDEV.WolkenNET.Content.Moderation;
 import KazukiDEV.WolkenNET.Content.mysql;
 import KazukiDEV.WolkenNET.Sites.Get.Beiträge;
 import KazukiDEV.WolkenNET.Sites.Get.Datenschutz;
@@ -63,7 +64,6 @@ public class App {
 		msql = new mysql(Config.getString("mysqlusername"), Config.getString("mysqlpassword"),
 				Config.getString("mysqldatabase"), Config.getString("mysqlip"),
 				Integer.parseInt((new StringBuilder(String.valueOf(Config.getString("mysqlport")))).toString()));
-
 		Spark.port(Integer.parseInt(Config.getString("sparkport")));
 		Spark.ipAddress(Config.getString("ip"));
 
