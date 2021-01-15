@@ -5,6 +5,7 @@ $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip()
       })
       
+      
       $(function() {
           if(!loggedin) {
             var userLang = navigator.language || navigator.userLanguage; 

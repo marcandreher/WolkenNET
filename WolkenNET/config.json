@@ -5,6 +5,6 @@
 	"mysqlip": "localhost",
 	"mysqlusername": "root",
 	"mysqlport": "3306",
-	"mysqldatabase": "pnet",
+	"mysqldatabase": "wolkennet",
 	"mysqlpassword": ""
 }

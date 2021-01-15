@@ -32,9 +32,7 @@ public class Themen implements Route {
 		ResultSet psql = mysql.Query(sql, request.params(":topic"));
 		String groupid = "";
 		try {
-			int id = 0;
 			while (psql.next()) {
-				id = psql.getInt("id");
 				m.put("titlebar", psql.getString("title"));
 				groupid = psql.getString("groupid");
 				m.put("groupid", groupid);
