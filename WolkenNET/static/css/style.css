@@ -294,6 +294,9 @@ body {
 .text-desc {
     color:rgba(0, 0, 0, 0.70);
 }
+li {
+  margin-left: 15px;
+}
 .list-home {
     padding-left: 20px;
 }

@@ -17,6 +17,13 @@ public class BBCode {
     bbMap.put("\\[h4\\](.+?)\\[/h4\\]", "<h4>$1</h4>");
     bbMap.put("\\[h5\\](.+?)\\[/h5\\]", "<h5>$1</h5>");
     bbMap.put("\\[h6\\](.+?)\\[/h6\\]", "<h6>$1</h6>");
+    
+    
+    
+    bbMap.put("\\[list\\]", "<ol>");
+    bbMap.put("\\[/list\\]", "</ol>");
+    bbMap.put("\\[li\\](.+?)\\[/li\\]", "<li>$1</li>");
+    
     bbMap.put("\\[indent\\](.+?)\\[/indent\\]", "<div style=\"text-indent: 50px;\">$1</div>");
     bbMap.put("\\[quote\\](.+?)\\[/quote\\]", "<blockquote>$1</blockquote>");
     bbMap.put("\\[p\\](.+?)\\[/p\\]", "<p>$1</p>");
@@ -73,16 +80,8 @@ public class BBCode {
 	    bbMap.put("\\[b\\](.+?)\\[/b\\]", "<strong>$1</strong>");
 	    bbMap.put("\\[i\\](.+?)\\[/i\\]", "<span style='font-style:italic;'>$1</span>");
 	    bbMap.put("\\[u\\](.+?)\\[/u\\]", "<span style='text-decoration:underline;'>$1</span>");
-	    bbMap.put("\\[h1\\](.+?)\\[/h1\\]", "<h1>$1</h1>");
-	    bbMap.put("\\[h2\\](.+?)\\[/h2\\]", "<h2>$1</h2>");
-	    bbMap.put("\\[h3\\](.+?)\\[/h3\\]", "<h3>$1</h3>");
-	    bbMap.put("\\[h4\\](.+?)\\[/h4\\]", "<h4>$1</h4>");
-	    bbMap.put("\\[h5\\](.+?)\\[/h5\\]", "<h5>$1</h5>");
-	    bbMap.put("\\[h6\\](.+?)\\[/h6\\]", "<h6>$1</h6>");
 	    bbMap.put("\\[quote\\](.+?)\\[/quote\\]", "<blockquote>$1</blockquote>");
 	    bbMap.put("\\[p\\](.+?)\\[/p\\]", "<p>$1</p>");
-	    bbMap.put("\\[center\\](.+?)\\[/center\\]", "<div align='center'>$1");
-	    bbMap.put("\\[align=(.+?)\\](.+?)\\[/align\\]", "<div align='$1'>$2");
 	    bbMap.put("\\[color=(.+?)\\](.+?)\\[/color\\]", "<span style='color:$1;'>$2</span>");
 	    bbMap.put("\\[size=(.+?)\\](.+?)\\[/size\\]", "<span style='font-size:$1;'>$2</span>");
 	    bbMap.put("\\[img\\](.+?)\\[/img\\]", "<img src='$1' />");
