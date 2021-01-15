@@ -17,6 +17,7 @@ public class BBCode {
     bbMap.put("\\[h4\\](.+?)\\[/h4\\]", "<h4>$1</h4>");
     bbMap.put("\\[h5\\](.+?)\\[/h5\\]", "<h5>$1</h5>");
     bbMap.put("\\[h6\\](.+?)\\[/h6\\]", "<h6>$1</h6>");
+    bbMap.put("\\[indent\\](.+?)\\[/indent\\]", "<div style=\"text-indent: 50px;\">$1</div>");
     bbMap.put("\\[quote\\](.+?)\\[/quote\\]", "<blockquote>$1</blockquote>");
     bbMap.put("\\[p\\](.+?)\\[/p\\]", "<p>$1</p>");
     bbMap.put("\\[p=(.+?),(.+?)\\](.+?)\\[/p\\]", "<p style='text-indent:$1px;line-height:$2%;'>$3</p>");
@@ -43,6 +44,7 @@ public class BBCode {
     bbMap.put("\\[H4\\](.+?)\\[/H4\\]", "<h4>$1</h4>");
     bbMap.put("\\[H5\\](.+?)\\[/H5\\]", "<h5>$1</h5>");
     bbMap.put("\\[H6\\](.+?)\\[/H6\\]", "<h6>$1</h6>");
+    bbMap.put("\\[INDENT\\](.+?)\\[/INDENT\\]", "<div style=\"text-indent: 50px;\">$1</div>");
     bbMap.put("\\[QUOTE\\](.+?)\\[/QUOTE\\]", "<blockquote>$1</blockquote>");
     bbMap.put("\\[P\\](.+?)\\[/P\\]", "<p>$1</p>");
     bbMap.put("\\[P=(.+?),(.+?)\\](.+?)\\[/P\\]", "<p style='text-indent:$1px;line-height:$2%;'>$3</p>");
