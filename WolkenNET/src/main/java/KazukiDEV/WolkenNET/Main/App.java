@@ -19,6 +19,7 @@ import KazukiDEV.WolkenNET.Sites.Get.Impressum;
 import KazukiDEV.WolkenNET.Sites.Get.Telefonseelsorge;
 import KazukiDEV.WolkenNET.Sites.Get.Themen;
 import KazukiDEV.WolkenNET.Sites.Get.Tippsundtricks;
+import KazukiDEV.WolkenNET.Sites.Get.pageNotFound;
 import KazukiDEV.WolkenNET.Sites.Get.AP.Dashboard;
 import KazukiDEV.WolkenNET.Sites.Get.AP.SystemEinstellungen;
 import KazukiDEV.WolkenNET.Sites.Get.AP.TopicManager;
@@ -98,6 +99,7 @@ public class App {
 		getroutes.put("/datenschutz", new Datenschutz());
 		getroutes.put("/tippsundtricks", new Tippsundtricks());
 		getroutes.put("/forenregeln", new Forenregeln());
+		getroutes.put("/404", new pageNotFound());
 		getroutes.put("/thema/:topic", new Themen());
 		getroutes.put("/beitrag/:cont/:user", new Beiträge());
 
@@ -112,6 +114,8 @@ public class App {
 		for (Map.Entry<String, Route> entry : postroutes.entrySet())
 			Spark.post(entry.getKey(), entry.getValue());
 
+		Spark.get("*", new pageNotFound());
+		
 		Spark.get("*", new Route() {
 			public Object handle(Request request, Response response) {
 				Boolean s = Boolean.valueOf(false);
@@ -129,5 +133,8 @@ public class App {
 				return null;
 			}
 		});
+		
+		
+		
 	}
 }
