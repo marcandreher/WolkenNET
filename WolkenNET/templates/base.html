@@ -22,6 +22,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">   
       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
       <link href="/css/style.css" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" integrity="sha512-G3jAqT2eM4MMkLMyQR5YBhvN5/Da3IG6kqgYqU9zlIH4+2a+GuMdLb5Kpxy6ItMdCfgaKlo2XFhI0dHtMJjoRw==" crossorigin="anonymous"></script>
       <script src="https://www.google.com/recaptcha/api.js"></script>
       
    </head>
@@ -46,7 +47,7 @@
               </li>
               <#if permissions = "10">
               <li class="nav-item">
-                <a class="nav-link" href="/ap/dashboard">Adminverwaltung</a>
+                <a class="nav-link" data-turbolinks="false" href="/ap/dashboard">Adminverwaltung</a>
             </li>
               </#if>
             <li class="nav-item">

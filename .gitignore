@@ -1,3 +1,7 @@
+# WolkenNET Files
+*.json
+*.propeties
+
 # Compiled class file
 *.class
 
