@@ -39,7 +39,7 @@ public class Themen implements Route {
 				m.put("icon", psql.getString("icon"));
 				m.put("description", psql.getString("description"));
 				m.put("important", psql.getString("important"));
-				m.put("banner", "");
+				m.put("banner", "/img/banner/sonnenuntergang.jpg");
 				String sql_count = "SELECT * FROM `contributions` WHERE `topic_id` = ? ORDER BY `contributions`.`id` DESC";
 				ResultSet countset = mysql.Query(sql_count, new StringBuilder().append(psql.getInt("id")).toString());
 				ArrayList<Contribution> contarr = new ArrayList<Contribution>();

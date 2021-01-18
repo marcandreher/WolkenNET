@@ -22,7 +22,7 @@ public class Telefonseelsorge implements Route {
 	public Object handle(Request request, Response response) {
 		Permissions.hasPermissions(request.cookie("session"), this.m, response);
 		m.put("titlebar", "Telefonseelsorge");
-		m.put("banner", "");
+		m.put("banner", "/img/banner/wellis.jpg");
 		try {
 			Template template = App.cfg.getTemplate("telefonseelsorge.html");
 			Writer out = new StringWriter();

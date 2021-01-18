@@ -58,7 +58,7 @@ public class Beiträge implements Route {
 					}
 					m.put("icon", psql.getString("user_id"));
 					m.put("timestamp", psql.getString("timestamp"));
-					m.put("banner", "");
+					m.put("banner", "/img/banner/wolken4.jpg");
 				}
 			}
 		} catch (Exception e1) {

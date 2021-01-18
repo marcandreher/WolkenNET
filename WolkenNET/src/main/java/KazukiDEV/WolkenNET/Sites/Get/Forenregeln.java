@@ -22,7 +22,7 @@ public class Forenregeln implements Route {
 	public Object handle(Request request, Response response) {
 		Permissions.hasPermissions(request.cookie("session"), this.m, response);
 		m.put("titlebar", "Forenregeln");
-		m.put("banner", "");
+		m.put("banner", "/img/banner/kreide.jpg");
 		try {
 			Template template = App.cfg.getTemplate("forenregeln.html");
 			Writer out = new StringWriter();
