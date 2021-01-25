@@ -39,6 +39,8 @@ $(document).ready(function(){
                 document.getElementById('inrr').innerHTML = 'Der Nutzername ist vergeben.' + btn
             }else if(r=="rul") {
                 document.getElementById('inrr').innerHTML = 'Der Nutzername ist zu lang.' + btn
+            }else if(r=="rus") {
+                document.getElementById('inrr').innerHTML = 'Du darfst keine Leerzeichen in deinem Namen nutzen, nutze doch (!,_,+,/).' + btn
             }else if(r=="rel") {
                 document.getElementById('inrr').innerHTML = 'Die Email Adresse ist zu lang.' + btn
             }else if(r=="rts") {

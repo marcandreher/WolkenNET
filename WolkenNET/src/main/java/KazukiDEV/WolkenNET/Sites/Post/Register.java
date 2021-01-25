@@ -56,6 +56,11 @@ public class Register implements Route {
 				response.redirect("/?r=rie&open=register");
 				return null;
 			}
+			
+			if(username.contains(" ")) {
+				response.redirect("/?r=rus&open=register");
+				return null;
+			}
 	
 			String session = Auth.generateSessionCookie();
 			
