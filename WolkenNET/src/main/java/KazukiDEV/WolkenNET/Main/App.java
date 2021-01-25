@@ -86,7 +86,6 @@ public class App {
 		if (!staticfolder.exists())
 			staticfolder.mkdirs();
 		cfg.setDirectoryForTemplateLoading(templates);
-
 		// AP
 		getroutes.put("/ap/dashboard", new Dashboard());
 		getroutes.put("/ap/settings", new SystemEinstellungen());

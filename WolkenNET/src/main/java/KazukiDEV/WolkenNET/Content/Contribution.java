@@ -15,6 +15,16 @@ public class Contribution {
 	private String Userid;
 
 	private String Perm;
+	
+	private int locked;
+	
+	public int getLocked() {
+		return locked;
+	}
+	
+	public void setLocked(int locked) {
+		this.locked = locked;
+	}
 
 	public String getPerm() {
 		return this.Perm;

@@ -7,6 +7,7 @@ $(document).ready(function(){
       
       
       $(function() {
+        loadCaptcha();
           if(!loggedin) {
             var userLang = navigator.language || navigator.userLanguage; 
         document.getElementById("country").value = userLang;

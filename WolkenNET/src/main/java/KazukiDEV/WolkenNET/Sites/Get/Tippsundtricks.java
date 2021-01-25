@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import KazukiDEV.WolkenNET.Config.u;
 import KazukiDEV.WolkenNET.Content.Permissions;
 import KazukiDEV.WolkenNET.Content.Topic;
 import KazukiDEV.WolkenNET.Content.mysql;
