@@ -47,10 +47,10 @@ public class Themen implements Route {
 					Contribution cont = new Contribution();
 					if (countset.getString("bbcode_text").length() < 100) {
 						cont.setBbcode_text(
-								BBCode.bbcode_th(countset.getString("bbcode_text").replaceAll("\\<[^>]*>", "")));
+								BBCode.bbcode_th(countset.getString("bbcode_text").replaceAll("\\<[^>]*>", "")).replaceAll("\\[.*?\\]", " "));
 					} else {
 						cont.setBbcode_text(BBCode.bbcode_th(
-								countset.getString("bbcode_text").substring(0, 100).replaceAll("\\<[^>]*>", "")));
+								countset.getString("bbcode_text").substring(0, 100).replaceAll("\\<[^>]*>", "")).replaceAll("\\[.*?\\]", " "));
 					}
 
 					cont.setTimestamp(countset.getString("timestamp"));
