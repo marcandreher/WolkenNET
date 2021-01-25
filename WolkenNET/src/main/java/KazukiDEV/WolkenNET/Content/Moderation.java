@@ -10,4 +10,13 @@ public class Moderation {
 		mysql.Exec(ban_sql, Auth.generateSessionCookie(), username);
 	}
 	
+	public static void deleteContribution(int id) {
+		u.s.println(u.warning + "The Contribution with the ID: " + Color.RED + new StringBuilder().append(id).toString() + Color.RESET + " was banned");
+		String sql = "DELETE * FROM `contributions` WHERE `id` = ?";
+		mysql.Exec(sql, new StringBuilder().append(id).toString() + "");
+	}
+	//(Privater chat)
+	//Beitrag sperren
+	//Beitrag freischalten
+	
 }

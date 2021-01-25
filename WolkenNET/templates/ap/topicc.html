@@ -1,4 +1,21 @@
 <#include "base.html">
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if(getParameterByName('gid') != null) {
+      document.getElementById('gid').value = getParameterByName('gid');
+    }
+}, false);
+
+// https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+</script>
         <div class="col">
                 <h1><i class="fas fa-edit"></i> Erstelle oder bearbeite ein Thema</h1>
                 <form method="post" action="/ap/topic">
@@ -16,7 +33,7 @@
                       <input type="name" name="sublink" value="${tsublink}" class="form-control">
                       
                       <label for="exampleInputPassword1">GroupID (Wohin geh&ouml;rt das Thema)</label>
-                      <input type="name" name="groupid" value="${tgroupid}" class="form-control">
+                      <input type="name" id="gid" name="groupid" value="${tgroupid}" class="form-control">
 
                       <label for="exampleInputPassword1">Setzt das Thema zu einem Hauptthema (0=false,1=true)</label>
                       <input type="name" name="important" value="${timportant}" class="form-control">

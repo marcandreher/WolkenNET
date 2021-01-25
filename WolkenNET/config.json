@@ -1,6 +1,6 @@
 {
 	"sparkport": "88",
-	"ip": "192.168.1.12",
+	"ip": "192.168.1.78",
 	"debug": "true",
 	"mysqlip": "localhost",
 	"mysqlusername": "root",
