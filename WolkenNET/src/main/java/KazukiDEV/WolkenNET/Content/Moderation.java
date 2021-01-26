@@ -15,8 +15,8 @@ public class Moderation {
 	
 	public static void deleteContribution(int id) {
 		u.s.println(u.warning + "The Contribution with the ID: " + Color.RED + new StringBuilder().append(id).toString() + Color.RESET + " was deleted");
-		String sql = "DELETE * FROM `contributions` WHERE `id` = ?";
-		mysql.Exec(sql, new StringBuilder().append(id).toString() + "");
+		String sql = "DELETE FROM `contributions` WHERE `id` = ?";
+		mysql.Exec(sql, id+"");
 	}
 	
 	public static void lockContribution(int id) throws SQLException {

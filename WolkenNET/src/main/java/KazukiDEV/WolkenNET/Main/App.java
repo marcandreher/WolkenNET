@@ -11,6 +11,8 @@ import KazukiDEV.WolkenNET.Config.u;
 import KazukiDEV.WolkenNET.Content.Color;
 import KazukiDEV.WolkenNET.Content.Moderation;
 import KazukiDEV.WolkenNET.Content.mysql;
+import KazukiDEV.WolkenNET.Sites.API.deleteContribution;
+import KazukiDEV.WolkenNET.Sites.API.lockContribution;
 import KazukiDEV.WolkenNET.Sites.Get.Beiträge;
 import KazukiDEV.WolkenNET.Sites.Get.Datenschutz;
 import KazukiDEV.WolkenNET.Sites.Get.Forenregeln;
@@ -94,6 +96,11 @@ public class App {
 		getroutes.put("/ap/topic/create", new TopicManager("create"));
 		getroutes.put("/ap/topic/edit", new TopicManager("edit"));
 
+		// API
+		getroutes.put("/ap/api/delete/contribution", new deleteContribution());
+		getroutes.put("/ap/api/lock/contributions", new lockContribution());
+		getroutes.put("/ap/api/ban/user", new lockContribution());
+		
 		getroutes.put("/telefon-seelsorge", new Telefonseelsorge());
 		getroutes.put("/", new Home());
 		getroutes.put("/impressum", new Impressum());
