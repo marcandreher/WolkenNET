@@ -5,6 +5,23 @@ $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip()
       })
       
+      $("#login").on('show.bs.modal', function(){
+        $('body').append($('<div id="captcha_container" class="google-cpatcha"></div>'));
+        setTimeout(function() {
+          grecaptcha.render('captcha_container_login', {
+            'sitekey': recaptcha
+          });
+        }, 1000);
+      });
+
+      $("#register").on('show.bs.modal', function(){
+        $('body').append($('<div id="captcha_container" class="google-cpatcha"></div>'));
+        setTimeout(function() {
+          grecaptcha.render('captcha_container_reg', {
+            'sitekey': recaptcha
+          });
+        }, 1000);
+      });
       
       $(function() {
           if(!loggedin) {

@@ -1,57 +1,8 @@
 
 </div>
-<#if loggedin=="false">
-<div class="modal fade bd-login-modal-sm" tabindex="-1" role="dialog" id="login" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm modal-ff">
-    <div class="modal-content">
-            <h1 class="text-center login-title">Melde dich an</h1>
-            <div class="account-wall">
-              <i class="fas fa-sign-in-alt fa-4x profile-img"></i>
-              <div id="alert-login">
-              </div>
-                <form id="rl-form" action="/login" method="POST" class="form-signin">
-                <input type="text" name="email" class="form-control" placeholder="Email" required autofocus>
-                <input type="password" name="password" class="form-control" placeholder="Passwort" required>
-                
-                <div class="g-recaptcha cap-ff" data-sitekey="${recaptcha}"></div>
-                <button class="btn btn-lg btn-primary btn-block">
-                    Anmelden</button>
-                <a href="#" class="pull-right need-help">Passwort zurücksetzen?</a>
-                </form>
-            </div>
-        </div>
-  </div>
-</div>
 
-<div class="modal fade bd-register-modal-sm" tabindex="-1" role="dialog" id="register" aria-labelledby="myRegisterModal" aria-hidden="true">
-  <div class="modal-dialog modal-sm modal-ff">
-    <div class="modal-content">
-            <h1 class="text-center login-title"> Erstelle dir einen Account</h1>
-            <div class="account-wall">
-              <i class="fas fa-user-plus fa-4x profile-img"></i>
-              <div id="alert-register"></div>
-              <form id="rl-form" action="/register" method="POST" class="form-signin">
-                <input type="text" name="email" class="form-control" placeholder="Email" required autofocus>
-                <input type="username" name ="username"class="form-control" placeholder="Nutzername" required>
-                <input type="password" name="password" class="form-control" placeholder="Passwort" required>
-                <input type="hidden" name="country"id="country" name="country" value="">
-                <label class="checkbox pull-left">
-                  <input type="checkbox" value="remember-me" required>
-                  Du stimmst unseren <a href="/datenschutz">AGBs</a> zu
-                </label>
-                <label class="checkbox pull-left">
-                  <input type="checkbox" value="remember-me" required>
-                  Außerdem stimmst du den <a href="/forenregeln">Forenregeln</a> zu
-                </label>
-                <div class="g-recaptcha cap-ff" data-sitekey="${recaptcha}"></div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Registrieren</button>
-                </form>
-            </div>
-        </div>
-  </div>
-</div>
-</#if>
+<#include "snippets/modal.html">
+
 <script src="/js/script.js"></script>
 
 <div class="footer">
