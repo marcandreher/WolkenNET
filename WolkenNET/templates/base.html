@@ -1,112 +1,117 @@
 <!DOCTYPE html>
 <html lang="de">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /> 
-      <meta name="description" content="Das WolkenNET beschäftigt sich mit sämtlichen psychischen Krankheiten, hier findest du Tipps und Tricks, Anlaufstellen, Kliniken und Ärzte. Wir würden uns freuen wenn du dem WolkenNET etwas beitragen würdest">
-      <meta name="author" content="Programmierung von Marc Andre Herpers">
-      <meta name="keywords" content="depressionen, krankheit, medikamente, tippsundtricks, anlaufstellen, kliniken, aerzte, chat. borderline">
-      <meta name="theme-color" content="#2980b9">
-      <meta name="color" content="#2980b9">
-      <meta property="og:url" content="https://wolkennet.de">
-      <meta property="og:icon" content="/img/logo_luck.png">
-      <meta property="og:type" content="wolkennet.de">
-      <meta property="og:title" content="${titlebar} - WolkenNET">
-      <meta property="og:description" content="Das WolkenNET beschäftigt sich mit sämtlichen psychischen Krankheiten, hier findest du Tipps und Tricks, Anlaufstellen, Kliniken und Ärzte. Wir würden uns freuen wenn du dem WolkenNET etwas beitragen würdest">
-      <title>WolkenNET - ${titlebar}</title>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script src="https://kit.fontawesome.com/3046fddc30.js" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <link rel="icon" type="image/vnd.microsoft.icon" href="/img/favicon.ico">
-      <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">   
-      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-      <link href="/css/style.css" rel="stylesheet">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" integrity="sha512-G3jAqT2eM4MMkLMyQR5YBhvN5/Da3IG6kqgYqU9zlIH4+2a+GuMdLb5Kpxy6ItMdCfgaKlo2XFhI0dHtMJjoRw==" crossorigin="anonymous"></script>
-      <script src="https://www.google.com/recaptcha/api.js"></script>
-      
-   </head>
-   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-colored">
-      <a href="/"><img src="/img/logo-cyan.png" class="response-image"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Erfahrungen
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#"><i class="fas fa-pills"></i> Medikamente</a>
-                  <a class="dropdown-item" href="/therapien"><i class="fas fa-user-check"></i> Therapien</a>
-                  <a class="dropdown-item" href="/klinikundaerzte"><i class="fas fa-user-md"></i> Klinik & Ärzte</a>
-                </div>
-              </li>
-              <#if permissions = "10">
-              <li class="nav-item">
-                <a class="nav-link" data-turbolinks="false" href="/ap/dashboard">Adminverwaltung</a>
-            </li>
-              </#if>
-            <li class="nav-item">
-                <a class="nav-link" href="/tippsundtricks">Tipps und Tricks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Chat</a>
-            </li>
-          </ul>
-          <#if loggedin=="false">
-          <script>var loggedin = false;</script>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-login-modal-sm">Einloggen</a>
-            </li>
-            <li class="nav-item">
-                <a href="#!" class="btn btn-rounded btn-info" data-toggle="modal" data-target=".bd-register-modal-sm">Registrieren</a>
-            </li>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <meta name="description"
+    content="Das WolkenNET beschäftigt sich mit sämtlichen psychischen Krankheiten, hier findest du Tipps und Tricks, Anlaufstellen, Kliniken und Ärzte. Wir würden uns freuen wenn du dem WolkenNET etwas beitragen würdest">
+  <meta name="author" content="Programmierung von Marc Andre Herpers">
+  <meta name="keywords"
+    content="depressionen, krankheit, medikamente, tippsundtricks, anlaufstellen, kliniken, aerzte, chat. borderline">
+  <meta name="theme-color" content="#2980b9">
+  <meta name="color" content="#2980b9">
+  <meta property="og:url" content="https://wolkennet.de">
+  <meta property="og:icon" content="/img/logo_luck.png">
+  <meta property="og:type" content="wolkennet.de">
+  <meta property="og:title" content="${titlebar} - WolkenNET">
+  <meta property="og:description"
+    content="Das WolkenNET beschäftigt sich mit sämtlichen psychischen Krankheiten, hier findest du Tipps und Tricks, Anlaufstellen, Kliniken und Ärzte. Wir würden uns freuen wenn du dem WolkenNET etwas beitragen würdest">
+  <title>WolkenNET - ${titlebar}</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://kit.fontawesome.com/3046fddc30.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="icon" type="image/vnd.microsoft.icon" href="/img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js"
+    integrity="sha512-G3jAqT2eM4MMkLMyQR5YBhvN5/Da3IG6kqgYqU9zlIH4+2a+GuMdLb5Kpxy6ItMdCfgaKlo2XFhI0dHtMJjoRw=="
+    crossorigin="anonymous"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-colored">
+    <a href="/"><img src="/img/logo-cyan.png" class="response-image"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Navigation öffnen">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdownErfahrungen" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Erfahrungen
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownErfahrungen">
+            <a class="dropdown-item" href="#"><i class="fas fa-pills"></i> Medikamente</a>
+            <a class="dropdown-item" href="/therapien"><i class="fas fa-user-check"></i> Therapien</a>
+            <a class="dropdown-item" href="/klinikundaerzte"><i class="fas fa-user-md"></i> Klinik & Ärzte</a>
+          </div>
+        </li>
+        <#if permissions="10">
+          <li class="nav-item">
+            <a class="nav-link" data-turbolinks="false" href="/ap/dashboard">Adminverwaltung</a>
+          </li>
+        </#if>
+        <li class="nav-item">
+          <a class="nav-link" href="/tippsundtricks">Tipps und Tricks</a>
+        </li>
+      </ul>
+      <#if loggedin=="false">
+        <script>var loggedin = false;</script>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a type="button" class="nav-link" data-toggle="modal" data-target=".bd-login-modal-sm">Einloggen</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="btn btn-rounded btn-info nav-link" data-toggle="modal"
+              data-target=".bd-register-modal-sm">Registrieren</a>
+          </li>
         </ul>
         <#else>
-        <script>var loggedin = true;</script>
-        <ul class="nav pull-right dropbot">
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle profile-nav" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <h class="profile-nav <#if permissions="10">admin<#elseif permissions="9">rank-moderator</#if>">${username}</h><img src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg" width="40" height="40" class="rounded-circle profile-img-nav">
-            </a>
-            
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/profil/${username}">Profil</a>
-              <a class="dropdown-item" href="#">Einstellungen</a>
-              <div class="dropdown-divider own-divider"></div>
-              <a onclick="logout()" class="dropdown-item" href="#">Ausloggen</a>
-            </div>
-          </li>
-
-          <li class="nav-item dropdown">
-            
-            
-            
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Profil</a>
-              <a class="dropdown-item" href="#">Einstellungen</a>
-              <div class="dropdown-divider own-divider"></div>
-              <a onclick="logout()" class="dropdown-item" href="#">Ausloggen</a>
-            </div>
-          </li>   
-      </ul>
-        </#if>
-        <script>var recaptcha="${recaptcha}";</script>
-        </div>
-      </nav>
-
-     <div class="huge heading  dropped" style="background-image: url('${banner}');">
-   
-      <div class="container">
-         <h1><#if bbcode_text??><i class="fas fa-comment"></i></#if><#if icon??><i class="${icon}"></i></#if> ${titlebar}</h1>
-         <#if description??><h5>${description}</h5></#if>
+          <script>var loggedin = true;</script>
+          <ul class="nav pull-right dropbot">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle profile-nav" href="#" id="userDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <h class="profile-nav <#if permissions="10">admin<#elseif permissions="9">rank-moderator</#if>">${username}</h><img
+        src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg" width="40"
+        height="40" class="rounded-circle profile-img-nav">
+      </a>
+      <div class="dropdown-menu" aria-labelledby="userDropdown">
+        <a class="dropdown-item" href="/profil/${username}">Profil</a>
+        <a class="dropdown-item" href="#">Einstellungen</a>
+        <div class="dropdown-divider own-divider"></div>
+        <a onclick="logout()" class="dropdown-item" href="#">Ausloggen</a>
       </div>
-</div>
-<div class="wrapper">
+      </li>
+      <li class="nav-item dropdown">
+        <div class="dropdown-menu" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="/profil/${username}">Profil</a>
+          <a class="dropdown-item" href="#">Einstellungen</a>
+          <div class="dropdown-divider own-divider"></div>
+          <a onclick="logout()" class="dropdown-item" href="#">Ausloggen</a>
+        </div>
+      </li>
+      </ul>
+      </#if>
+      <script>var recaptcha = "${recaptcha}";</script>
+    </div>
+  </nav>
+  <div class="huge heading" style="background-image: url('${banner}');">
+    <div class="container">
+      <h1>
+        <#if bbcode_text??><i class="fas fa-comment"></i></#if>
+        <#if icon??><i class="${icon}"></i></#if> ${titlebar}
+      </h1>
+      <#if description??>
+        <h5>${description}</h5>
+      </#if>
+    </div>
+  </div>
+  <div class="wrapper">

@@ -1,63 +1,69 @@
-
 <#include "base.html">
-<div class="container">
-    <#include "snippets/pagination.html">
-</div>
-<div class="container container-home col-8-home col-8-imp bootstrap snippets bootdey">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="wrapper-content animated fadeInRight">
-                <div class="forum-container">
-                       <#list tags>
-                       <#items as tag>
-                    <div class="forum-item <#if tag.important = "1">active</#if>">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="forum-icon">
-                                    <i class="${tag.icon} fa-2x"></i>
+    <div class="container">
+        <#include "snippets/pagination.html">
+    </div>
+    <div class="container container-home col-8-home col-8-imp bootstrap snippets bootdey">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper-content animated fadeInRight">
+                    <div class="forum-container">
+                        <#list tags>
+                            <#items as tag>
+                                <div class="forum-item <#if tag.important = " 1">active</#if>">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="forum-icon">
+                                                <i class="${tag.icon} fa-2x"></i>
+                                            </div>
+                                            <a href="/thema/${tag.sublink}" class="forum-item-title">${tag.title}</a>
+                                            <div class="forum-sub-title"><span class="mobile-posts"><i
+                                                        class="fas fa-envelope-square"></i> ${tag.posts} | <i
+                                                        class="fas fa-eye"></i> ${tag.views}</span> ${tag.description}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-1 forum-info">
+                                            <span class="views-number">
+                                                ${tag.posts}
+                                            </span>
+                                            <div>
+                                                <small>Posts</small>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-1 forum-info">
+                                            <span class="views-number">
+                                                ${tag.views}
+                                            </span>
+                                            <div>
+                                                <small>Klicks</small>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="/thema/${tag.sublink}" class="forum-item-title">${tag.title}</a>
-                                <div class="forum-sub-title"><span class="mobile-posts"><i class="fas fa-envelope-square"></i> ${tag.posts} | <i class="fas fa-eye"></i> ${tag.views}</span> ${tag.description}</div>
-                            </div>
-                            
-                            <div class="col-md-1 forum-info">
-                                <span class="views-number">
-                                    ${tag.posts}
-                                </span>
-                                <div>
-                                    <small>Posts</small>
-                                </div>
-                                
-                            </div>
-                            <div class="col-md-1 forum-info">
-                                <span class="views-number">
-                                    ${tag.views}
-                                </span>
-                                <div>
-                                    <small>Klicks</small>
-                                </div>
-                                
-                            </div>
-                        </div>
+                            </#items>
+                            <#else>
+                                <h5 style="padding-top: 8px;">Keine Themen auf dieser Seite vorhanden</h5>
+                        </#list>
+                        <#if permissions="10">
+                            <#if page==allpages>
+                                <a href="/ap/topic/create?gid=1" data-turbolinks="false"
+                                    class="btn btn-sm btn-block btn-rounded btn-info"><i class="fas fa-folder-plus"></i>
+                                    Thema hinzufügen</a>
+                            </#if>
+                            <#if allpages=0>
+                                <a href="/ap/topic/create?gid=1" data-turbolinks="false"
+                                    class="btn timeline btn-sm btn-block btn-rounded btn-info"><i
+                                        class="fas fa-folder-plus"></i> Thema hinzufügen</a>
+                            </#if>
+                        </#if>
                     </div>
-                    </#items>
-                    <#else>
-                        <h5 style="padding-top: 8px;">Keine Themen auf dieser Seite vorhanden</h5>
-                    </#list>
-                    <#if permissions = "10">
-                        <#if page == allpages>
-                            <a href="/ap/topic/create?gid=1" data-turbolinks="false" class="btn btn-sm btn-block btn-rounded btn-info"><i class="fas fa-folder-plus"></i> Thema hinzufügen</a>
-                        </#if>
-                        <#if allpages = 0>
-                            <a href="/ap/topic/create?gid=1" data-turbolinks="false" class="btn timeline btn-sm btn-block btn-rounded btn-info"><i class="fas fa-folder-plus"></i> Thema hinzufügen</a>
-                        </#if>
-                    </#if>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <#include "snippets/pagination.html">
-</div>
+    <div class="container">
+        <#include "snippets/pagination.html">
+    </div>
     <#include "footer.html">
