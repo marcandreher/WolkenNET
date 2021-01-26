@@ -4,7 +4,9 @@
     <div class="container-fluid">
         
         <div class="row clearfix">
+            
             <div class="col-lg-12">
+                
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="/${bclink}">${bcsite}</a></li>
@@ -19,17 +21,9 @@
                         </span>
                     </div>
                 </div> 
-                <div class="card action_bar">
-                    <div class="body">
-                        
-                        <div class="row">
-    
-                                                                                
-                        </div>
-                    </div>
-                </div>
             </div>           
         </div>        
+        <div class="pagi-top"><#include "snippets/pagination.html"></div>
         <div class="row clearfix">
             <div class="col-md-12 col-lg-12 col-xl-12">
                 <ul class="mail_list list-group list-unstyled">
@@ -49,7 +43,7 @@
                             <div class="media-body">
                                 <div class="media-heading">
                                     <a href="/beitrag/${contss.sublink}/${contss.userid}" class="m-r-10"> ${contss.sublink}</a>
-                                    <span class="badge bg-primary">Beitrag</span> <#if contss.perm = "10"><span class="badge bg-red">Admin</span></#if>
+                                    <span class="badge bg-primary">Beitrag</span> <#if contss.perm = "10"><span class="badge bg-red">Admin</span></#if> <#if contss.locked = 1><span class="badge bg-yellow"><i class="fas fa-eye-slash"></i></span></#if>
                                     <small class="float-right text-muted"><time class="hidden-sm-down" datetime="2017">${contss.timestamp}</time><i class="zmdi zmdi-attachment-alt"></i> </small>
                                 </div>
                                 <p class="msg">  ${contss.bbcode_text} </p>
@@ -62,6 +56,8 @@
                 
             </div>
         </div>
+        <div class="pagi-bot"><#include "snippets/pagination.html"></div>
+        
     </div>
 </section>
  </div>

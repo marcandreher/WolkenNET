@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
 
+import KazukiDEV.WolkenNET.Config.u;
 import KazukiDEV.WolkenNET.Content.BBCode;
 import KazukiDEV.WolkenNET.Content.Permissions;
 import KazukiDEV.WolkenNET.Content.mysql;
@@ -42,6 +43,16 @@ public class Beiträge implements Route {
 					}
 					String addview_sql = "UPDATE `contributions` SET `views` = `views` + 1 where `id` = ?";
 					mysql.Exec(addview_sql, new StringBuilder().append(psql.getInt("id")).toString());
+					if(psql.getBoolean("locked") == true) {
+						if(((String)m.get("permissions")).contains("10")) {
+							m.put("locked", true);
+						}else {
+							response.redirect("/?open=login&l=lnp");
+							return null;
+						}
+					}else {
+						m.put("locked", false);
+					}
 					m.put("titlebar", psql.getString("sublink"));
 					m.put("bbcode_text", BBCode.bbcode(psql.getString("bbcode_text").replaceAll("\\<[^>]*>", "")));
 					m.put("topicid", psql.getString("topic_id"));

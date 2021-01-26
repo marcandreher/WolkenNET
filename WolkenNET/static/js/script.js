@@ -7,7 +7,6 @@ $(document).ready(function(){
       
       
       $(function() {
-        loadCaptcha();
           if(!loggedin) {
             var userLang = navigator.language || navigator.userLanguage; 
         document.getElementById("country").value = userLang;
@@ -29,6 +28,8 @@ $(document).ready(function(){
                 document.getElementById('inr').innerHTML = 'Dein Gerät wurde für das einloggen kurzzeitig gesperrt.' + btn
             }else if(l=="lub") {
                 document.getElementById('inr').innerHTML = 'Dein Nutzer Account wurde gesperrt, für weitere Informationen schreibe uns eine Email <a href="mailto:info@wolkennet.de">info@wolkennet.de</a>' + btn
+            }else if(l=="lnp") {
+                document.getElementById('inr').innerHTML = 'Du hast keine Berechtigung um dich dort zu bewegen' + btn
             }
         }
         var r = qs["r"];

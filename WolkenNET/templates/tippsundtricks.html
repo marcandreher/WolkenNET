@@ -48,6 +48,9 @@
                         <#if page == allpages>
                             <a href="/ap/topic/create?gid=1" data-turbolinks="false" class="btn btn-sm btn-block btn-rounded btn-info"><i class="fas fa-folder-plus"></i> Thema hinzufügen</a>
                         </#if>
+                        <#if allpages = 0>
+                            <a href="/ap/topic/create?gid=1" data-turbolinks="false" class="btn timeline btn-sm btn-block btn-rounded btn-info"><i class="fas fa-folder-plus"></i> Thema hinzufügen</a>
+                        </#if>
                     </#if>
                 </div>
             </div>

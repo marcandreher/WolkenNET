@@ -103,6 +103,14 @@
   display: inline-block;
   margin-right: 5px;
 }
+.pagi-bot {
+  padding-left: 15px;
+  padding-top: 15px;
+}
+.pagi-top {
+  padding-top: 15px;
+  padding-left: 15px;
+}
 .timeline .timeline-album img {
   height: 36px;
   width: auto;

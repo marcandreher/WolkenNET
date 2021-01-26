@@ -44,6 +44,14 @@
                     <#else>
                         <h5 style="padding-top: 8px;">Keine Themen auf dieser Seite vorhanden</h5>
                     </#list>
+                    <#if permissions = "10">
+                        <#if page == allpages>
+                            <a href="/ap/topic/create?gid=2" data-turbolinks="false" class="btn btn-sm btn-block btn-rounded btn-info"><i class="fas fa-folder-plus"></i> Thema hinzufügen</a>
+                        </#if>
+                        <#if allpages = 0>
+                            <a href="/ap/topic/create?gid=2" data-turbolinks="false" class="btn timeline btn-sm btn-block btn-rounded btn-info"><i class="fas fa-folder-plus"></i> Thema hinzufügen</a>
+                        </#if>
+                    </#if>
                 </div>
             </div>
         </div>
