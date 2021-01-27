@@ -89,6 +89,15 @@
   margin-top: 30px;
   position: relative;
 }
+.ea {
+  margin-top: 10px;
+}
+.img-thumbnail {
+  height: auto; 
+  width: auto; 
+  max-width: 90px; 
+  max-height: 90px;
+}
 .timeline .timeline-box {
   background: #fff;
   display: block;

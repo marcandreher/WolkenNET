@@ -29,6 +29,7 @@ import KazukiDEV.WolkenNET.Sites.Get.AP.SystemEinstellungen;
 import KazukiDEV.WolkenNET.Sites.Get.AP.TopicManager;
 import KazukiDEV.WolkenNET.Sites.Post.Login;
 import KazukiDEV.WolkenNET.Sites.Post.Register;
+import KazukiDEV.WolkenNET.Sites.Post.postContribution;
 import KazukiDEV.WolkenNET.Sites.Post.AP.HandleSettings;
 import KazukiDEV.WolkenNET.Sites.Post.AP.HandleTopic;
 import freemarker.template.Configuration;
@@ -115,6 +116,7 @@ public class App {
 
 		postroutes.put("/register", new Register());
 		postroutes.put("/login", new Login());
+		postroutes.put("/add/contribution", new postContribution());
 
 		postroutes.put("/ap/topic", new HandleTopic());
 		postroutes.put("/ap/settings", new HandleSettings());

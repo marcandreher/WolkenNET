@@ -84,8 +84,8 @@ public class BBCode {
 	    bbMap.put("\\[p\\](.+?)\\[/p\\]", "<p>$1</p>");
 	    bbMap.put("\\[color=(.+?)\\](.+?)\\[/color\\]", "<span style='color:$1;'>$2</span>");
 	    bbMap.put("\\[size=(.+?)\\](.+?)\\[/size\\]", "<span style='font-size:$1;'>$2</span>");
-	    bbMap.put("\\[img\\](.+?)\\[/img\\]", "<img src='$1' />");
-	    bbMap.put("\\[img=(.+?),(.+?)\\](.+?)\\[/img\\]", "<img width='$1' height='$2' src='$3' />");
+	    bbMap.put("\\[img\\](.+?)\\[/img\\]", "<img class='img-thumbnail' src='$1' />");
+	    bbMap.put("\\[img=(.+?),(.+?)\\](.+?)\\[/img\\]", "<img class='img-thumbnail' width='$1' height='$2' src='$3' />");
 	    bbMap.put("\\[email\\](.+?)\\[/email\\]", "<a href='mailto:$1'>$1</a>");
 	    bbMap.put("\\[email=(.+?)\\](.+?)\\[/email\\]", "<a href='mailto:$1'>$2</a>");
 	    bbMap.put("\\[url\\](.+?)\\[/url\\]", "<a href='$1'>$1</a>");
@@ -99,7 +99,7 @@ public class BBCode {
 	    bbMap.put("\\[ALIGN=(.+?)\\](.+?)\\[/ALIGN\\]", "<div align='$1'>$2");
 	    bbMap.put("\\[COLOR=(.+?)\\](.+?)\\[/COLOR\\]", "<span style='color:$1;'>$2</span>");
 	    bbMap.put("\\[SIZE=(.+?)\\](.+?)\\[/SIZE\\]", "<span style='font-size:$1;'>$2</span>");
-	    bbMap.put("\\[IMG=(.+?),(.+?)\\](.+?)\\[/IMG\\]", "<img width='$1' height='$2' src='$3' />");
+	    bbMap.put("\\[IMG=(.+?),(.+?)\\](.+?)\\[/IMG\\]", "<img class='img-thumbnail' width='$1' height='$2' src='$3' />");
 	    bbMap.put("\\[EMAIL\\](.+?)\\[/EMAIL\\]", "<a href='mailto:$1'>$1</a>");
 	    bbMap.put("\\[EMAIL=(.+?)\\](.+?)\\[/EMAIL\\]", "<a href='mailto:$1'>$2</a>");
 	    bbMap.put("\\[URL\\](.+?)\\[/URL\\]", "<a href='$1'>$1</a>");

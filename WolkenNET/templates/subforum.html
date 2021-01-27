@@ -6,7 +6,23 @@
                 <div class="row clearfix">
 
                     <div class="col-lg-12">
+                        <#if loggedin = "true">
+                        <a id="fadeEditor" class="btn btn-sm btn-block btn-rounded btn-info"><i class="fas fa-folder-plus"></i>
+                            Beitrag hinzufügen</a>
+                            
+                        <div id="editorArea" class="container ea container-home col-8-home col-8-imp" style="display: none;">
+                            <form id="rl-form" action="/add/contribution" method="POST">
+                            <input type="text" name="title" class="form-control" placeholder="Titel" required autofocus>
+                            <textarea type="text" name="bbcode_text" class="form-control" placeholder="Dein Beitrag" cols="30" rows="10" required></textarea>
+                            <div class="cap-ff" id="captcha_container_post"></div>
+                            <input type="hidden" name="topic_id" id="topic_id" name="topic_id" value="${id}">
+                            <button class="btn btn-sm btn-block btn-info"><i class="fas fa-plus-square"></i>
+                                Beitrag abschicken</button>
 
+                                
+                            </form>
+                        </div>
+                        </#if>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/${bclink}">${bcsite}</a></li>
@@ -25,11 +41,14 @@
                     </div>
                 </div>
                 <div class="pagi-top">
+
                     <#include "snippets/pagination.html">
                 </div>
+
                 <div class="row clearfix">
                     <div class="col-md-12 col-lg-12 col-xl-12">
                         <ul class="mail_list list-group list-unstyled">
+
                             <#list conts>
                                 <#items as contss>
                                     <li class="list-group-item">
@@ -53,8 +72,8 @@
                                                     <#if contss.perm="10"><span class="badge bg-red">Admin</span></#if>
                                                     <#if contss.locked=1><span class="badge bg-yellow"><i
                                                                 class="fas fa-eye-slash"></i></span></#if>
-                                                    <small class="float-right text-muted"><time class="hidden-sm-down"
-                                                            datetime="2017">${contss.timestamp}</time><i
+                                                    <small class="float-right text-muted"><time class="hidden-sm-down timeago"
+                                                            datetime="${contss.timestamp}" title="${contss.timestamp}">${contss.timestamp}</time><i
                                                             class="zmdi zmdi-attachment-alt"></i> </small>
                                                 </div>
                                                 <p class="msg"> ${contss.bbcode_text} </p>
