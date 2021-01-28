@@ -9,7 +9,6 @@ import org.apache.log4j.PropertyConfigurator;
 import KazukiDEV.WolkenNET.Config.Config;
 import KazukiDEV.WolkenNET.Config.u;
 import KazukiDEV.WolkenNET.Content.Color;
-import KazukiDEV.WolkenNET.Content.Moderation;
 import KazukiDEV.WolkenNET.Content.mysql;
 import KazukiDEV.WolkenNET.Sites.API.deleteContribution;
 import KazukiDEV.WolkenNET.Sites.API.lockContribution;

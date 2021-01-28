@@ -1,6 +1,5 @@
 package KazukiDEV.WolkenNET.Sites.API;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 

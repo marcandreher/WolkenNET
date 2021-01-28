@@ -9,17 +9,27 @@
                         <#if loggedin = "true">
                         <a id="fadeEditor" class="btn btn-sm btn-block btn-rounded btn-info"><i class="fas fa-folder-plus"></i>
                             Beitrag hinzufügen</a>
-                            
+                            <script>
+                                var editor = true;
+                            </script>
                         <div id="editorArea" class="container ea container-home col-8-home col-8-imp" style="display: none;">
                             <form id="rl-form" action="/add/contribution" method="POST">
-                            <input type="text" name="title" class="form-control" placeholder="Titel" required autofocus>
+                            <input type="text" name="title" class="form-control titlebox" placeholder="Titel" required autofocus>
                             <textarea type="text" name="bbcode_text" class="form-control" placeholder="Dein Beitrag" cols="30" rows="10" required></textarea>
-                            <div class="cap-ff" id="captcha_container_post"></div>
+                            <div class="cap-ff titlebox" id="captcha_container_post"></div>
                             <input type="hidden" name="topic_id" id="topic_id" name="topic_id" value="${id}">
+                       
+                            <div class="alert alert-secondary alert-dismissible fade show hidden" id="recaptchaerr" role="alert">
+                                Ohne das ausfüllen des Captchas kann dein Post nicht veröffentlicht werden.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                   
                             <button class="btn btn-sm btn-block btn-info"><i class="fas fa-plus-square"></i>
                                 Beitrag abschicken</button>
+                            
 
-                                
                             </form>
                         </div>
                         </#if>

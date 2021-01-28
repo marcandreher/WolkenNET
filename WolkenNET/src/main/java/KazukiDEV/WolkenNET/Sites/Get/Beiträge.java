@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
 
-import KazukiDEV.WolkenNET.Config.u;
 import KazukiDEV.WolkenNET.Content.BBCode;
 import KazukiDEV.WolkenNET.Content.Permissions;
 import KazukiDEV.WolkenNET.Content.mysql;
@@ -40,6 +39,8 @@ public class Beiträge implements Route {
 						m.put("author_name", psql2.getString("username"));
 						m.put("perm", psql2.getString("permissions"));
 						m.put("authority", psql2.getString("authority"));
+						m.put("id", psql.getInt("id"));
+						m.put("uid", psql2.getInt("id"));
 					}
 					String addview_sql = "UPDATE `contributions` SET `views` = `views` + 1 where `id` = ?";
 					mysql.Exec(addview_sql, new StringBuilder().append(psql.getInt("id")).toString());
