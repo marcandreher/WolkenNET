@@ -44,9 +44,9 @@ public class Beiträge implements Route {
 					}
 					String addview_sql = "UPDATE `contributions` SET `views` = `views` + 1 where `id` = ?";
 					mysql.Exec(addview_sql, new StringBuilder().append(psql.getInt("id")).toString());
+					m.put("locked", psql.getBoolean("locked"));
 					if(psql.getBoolean("locked") == true) {
 						if(((String)m.get("permissions")).contains("10")) {
-							m.put("locked", true);
 						}else {
 							response.redirect("/?open=login&l=lnp");
 							return null;

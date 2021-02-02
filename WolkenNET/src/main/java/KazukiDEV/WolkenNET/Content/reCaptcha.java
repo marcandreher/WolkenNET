@@ -10,6 +10,8 @@ import javax.net.ssl.HttpsURLConnection;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import KazukiDEV.WolkenNET.Config.u;
+
 public class reCaptcha {
 	
 	public static boolean handleCaptcha(String responseG) throws Exception {
@@ -18,6 +20,11 @@ public class reCaptcha {
 		ResultSet secretRS = mysql.Query(secretSQL, 5+"");
 		while(secretRS.next()) {
 			secret = secretRS.getString("value_string");
+		}
+		
+		if(secret.length() < 1) {
+			// ReCaptcha Deaktiviert
+			return true;
 		}
 		
 		URL url = new URL ("https://www.google.com/recaptcha/api/siteverify?secret=" + secret + "&response=" + responseG);
@@ -33,7 +40,7 @@ public class reCaptcha {
 				    while ((responseLine = br.readLine()) != null) {
 				        response.append(responseLine.trim());
 				    }
-				    System.out.println(response.toString());
+				    System.out.println(u.recaptcha + response.toString());
 				    JSONParser parser = new JSONParser();
 					Object obj = parser.parse(response.toString());
 					JSONObject jsonObject = (JSONObject) obj;

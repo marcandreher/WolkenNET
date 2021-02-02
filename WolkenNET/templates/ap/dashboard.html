@@ -1,32 +1,85 @@
 <#include "base.html">
-        <div class="col">
-            
-            <div class="col-stats col">
-                <div class="row">
-                    <div class="col-4">
-                        <i class="far fa-eye fa-4x home-stats"></i>
+<div class="col-md-10 ">
+    <div class="row ">
+        <div class="col-xl-3 col-lg-6">
+            <div class="card l-bg-cherry">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="mb-4">
+                        <h5 class="card-title mb-0">Session Aufrufe</h5>
                     </div>
-                    <div class="col-8">
-                       <div class="status-home">Session Klicks:</div>
-                       <div class="value-home">${sessionviews}</div>
-                    </div>
-                    <div class="col-4">
-                        <i class="fas fa-money-bill-wave fa-4x home-stats"></i>
-                    </div>
-                    <div class="col-8">
-                       <div class="status-home">Verdienst:</div>
-                       <div class="value-home">0 Euro</div>
-                    </div>
-                        <div class="col-4">
-                            <i class="fas fa-users fa-4x home-stats"></i>
-                        </div>
+                    <div class="row align-items-center mb-2 d-flex">
                         <div class="col-8">
-                           <div class="status-home">Registrierte Nutzer:</div>
-                           <div class="value-home">${registered}</div>
+                            <h2 class="d-flex align-items-center mb-0">
+                                ${sessionviews}
+                            </h2>
                         </div>
-                   
+                    </div>
                 </div>
             </div>
-          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <div class="card l-bg-blue-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
+                    <div class="mb-4">
+                        <h5 class="card-title mb-0">Registrierte Nutzer</h5>
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                        <div class="col-8">
+                            <h2 class="d-flex align-items-center mb-0">
+                                ${registered}
+                            </h2>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <div class="card l-bg-green-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
+                    <div class="mb-4">
+                        <h5 class="card-title mb-0">Ticket Resolved</h5>
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                        <div class="col-8">
+                            <h2 class="d-flex align-items-center mb-0">
+                                578
+                            </h2>
+                        </div>
+                        <div class="col-4 text-right">
+                            <span>10% <i class="fa fa-arrow-up"></i></span>
+                        </div>
+                    </div>
+                    <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                        <div class="progress-bar l-bg-orange" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <div class="card l-bg-orange-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="mb-4">
+                        <h5 class="card-title mb-0">Verdienst</h5>
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                        <div class="col-8">
+                            <h2 class="d-flex align-items-center mb-0">
+                                0 Euro
+                            </h2>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 	</div>
 </div>

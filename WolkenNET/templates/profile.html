@@ -1,0 +1,95 @@
+<#include "base.html">
+    <div class="container container-home col-8-home col-8-imp">
+        <div class="container">
+            <div class="view-account">
+                <section class="module">
+                    <div class="module-inner">
+                        <div class="side-bar">
+                            <div class="user-info">
+                                <img class="img-profile img-circle img-responsive center-block" src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg" alt="">
+                                <ul class="meta list list-unstyled">
+                                    <li class="name <#if perm = 10>admin</#if>">${uname} </li>
+                                        <label class="label label-info"><#if auth !="Kein Titel">${auth}</#if></label>
+                                   
+                                    <li class="activity"><em>Registrierung ist </em><time class="hidden-sm-down timeago"
+                                        datetime="${registered_on}" title="${registered_on}">${registered_on}</time></li>
+                                        <li class="activity"><em>Letzter login ist </em><time class="hidden-sm-down timeago"
+                                            datetime="${last_login}" title="${last_login}">${last_login}</time></li>
+                                            <#if loggedin == "true">
+                                            <#if uname != username>
+                                        <li><button type="button" class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Freund hinzufügen</button></li>
+                                    </#if>
+                                    </#if>
+                                </ul>
+                            </div>
+                            <nav class="side-menu">
+                                <ul class="nav">
+                                    <li class="active"><a href="#"><span class="fa fa-user"></span> Profile</a></li>
+                                    <li><a href="#"><span class="fas fa-user-friends"></span> Freunde</a></li>
+                                    <li><a href="#"><span class="fas fa-mail-bulk"></span> Beiträge</a></li>
+                                    <li><a href="#"><span class="fas fa-chart-bar"></span> Statistiken</a></li>
+                                    <#if uname == username>
+                                        <li><a href="#"><span class="fa fa-clock-o"></span> Settings</a></li>
+                                    </#if>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="content-panel">
+                            <div class="row">
+                                <div class="col-lg-12 mb-4 prempro">
+                                    <h5>Biographie:</h5>
+                                    <hr>
+                                    <#if bbinfo??>
+                                            ${bbinfo}
+                                    <#else>
+                                            Dieser Nutzer hat keine Biographie
+                                    </#if>
+                                </div>
+                                <div class="col-lg-12 mb-4">
+                                    <ul class="mail_list list-group list-unstyled">
+                                        <h5 class="prempro">Beliebteste Posts:</h5>
+                                        <#list conts>
+                                            <#items as contss>
+                                                <li class="list-group-item">
+                                                    <div class="media">
+                                                        <div class="pull-left">
+            
+                                                            <div class="checkbox">
+                                                                <a href="/profil/${contss.username}"><img
+                                                                        src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg"
+                                                                        class="img-responsive img-th img-rounded"
+                                                                        style="max-height: 50px; max-width: 50px;"></a>
+                                                            </div>
+            
+            
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <div class="media-heading">
+                                                                <a href="/beitrag/${contss.sublink}/${contss.userid}"
+                                                                    class="m-r-10"> ${contss.sublink}</a>
+                                                               
+                                                                
+                                                                <#if contss.locked=1><span class="badge bg-yellow"><i
+                                                                            class="fas fa-eye-slash"></i></span></#if>
+                                                                            <span class="badge bg-red"><i
+                                                                                class="fas fa-eye"></i> ${contss.views}</span>
+                                                                <small class="float-right text-muted"><time class="hidden-sm-down timeago"
+                                                                        datetime="${contss.timestamp}" title="${contss.timestamp}">${contss.timestamp}</time><i
+                                                                        class="zmdi zmdi-attachment-alt"></i> </small>
+                                                            </div>
+                                                            <p class="msg"> ${contss.bbcode_text} </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </#items>
+                                        </#list>
+                                    </ul>
+                                </div>
+                              </div>
+                           
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <#include "footer.html">

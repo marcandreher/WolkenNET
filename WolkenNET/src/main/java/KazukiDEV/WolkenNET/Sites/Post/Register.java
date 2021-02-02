@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import KazukiDEV.WolkenNET.Content.Auth;
 import KazukiDEV.WolkenNET.Content.Permissions;
 import KazukiDEV.WolkenNET.Content.mysql;
+import KazukiDEV.WolkenNET.Content.reCaptcha;
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -36,6 +37,18 @@ public class Register implements Route {
 			response.redirect("/");
 			return null;
 		}
+		
+		try {
+			Boolean recaptcha = reCaptcha.handleCaptcha(request.queryParams("g-recaptcha-response"));
+			if(recaptcha == false) {
+				response.redirect("/?r=rcf&open=register");
+				return null;
+			}
+			
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		
 		if((int)m.get("registrations") != 1) {
 			response.redirect("/?r=rd&open=register");
 			return null;

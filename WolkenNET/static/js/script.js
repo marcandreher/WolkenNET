@@ -91,6 +91,8 @@ $(document).ready(function () {
                     document.getElementById('inr').innerHTML = 'Dein Nutzer Account wurde gesperrt, fÃ¼r weitere Informationen schreibe uns eine Email <a href="mailto:info@wolkennet.de">info@wolkennet.de</a>' + btn
                 } else if (l == "lnp") {
                     document.getElementById('inr').innerHTML = 'Du hast keine Berechtigung um dich dort zu bewegen' + btn
+                }else if (l == "lcf") {
+                    document.getElementById('inr').innerHTML = 'Du musst das Captcha ausfüllen' + btn
                 }
             }
             var r = qs["r"];
@@ -114,6 +116,8 @@ $(document).ready(function () {
                     document.getElementById('inrr').innerHTML = 'Ein interner Fehler ist aufgetreten, wir versuchen das so schnell wie mÃ¶glich zu reparieren.' + btn
                 } else if (r == "rd") {
                     document.getElementById('inrr').innerHTML = 'Registrierungen sind momentan deaktiviert, versuche es bitte spÃ¤ter nochmal.' + btn
+                } else if (r == "rcf") {
+                    document.getElementById('inrr').innerHTML = 'Du musst das Captcha ausfüllen.' + btn
                 }
             }
         }

@@ -110,7 +110,7 @@
     <div class="container">
       <h1>
         <#if bbcode_text??><i class="fas fa-comment"></i></#if>
-        <#if icon??><i class="${icon}"></i></#if> ${titlebar}
+        <#if icon??><i class="${icon}"></i></#if> ${titlebar} <#if locked??><#if locked == true><i class="fas fa-eye-slash text-muted"></i></#if></#if>
       </h1>
       <#if description??>
         <h5>${description}</h5>

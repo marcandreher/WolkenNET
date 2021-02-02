@@ -14,4 +14,6 @@ public class u {
   public static String error = Color.MAGENTA + "[" + Color.RED + "ERROR" + Color.MAGENTA + "] " + Color.RESET;
   
   public static String mysql = Color.MAGENTA + "[" + Color.GREEN + "MySQL" + Color.MAGENTA + "] " + Color.RESET;
+  
+  public static String recaptcha = Color.MAGENTA + "[" + Color.CYAN + "Google ReCaptcha v2" + Color.MAGENTA + "] " + Color.RESET;
 }

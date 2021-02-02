@@ -18,6 +18,16 @@ public class Contribution {
 	
 	private int locked;
 	
+	private int views;
+	
+	public int getViews() {
+		return views;
+	}
+	
+	public void setViews(int views) {
+		this.views = views;
+	}
+	
 	public int getLocked() {
 		return locked;
 	}
