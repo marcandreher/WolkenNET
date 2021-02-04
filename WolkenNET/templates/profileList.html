@@ -1,19 +1,9 @@
 <#include "base.html">
 <#include "snippets/profilebar.html">
                         <div class="content-panel">
-                            <div class="row">
-                                <div class="col-lg-12 mb-4 prempro">
-                                    <h5>Biographie:</h5>
-                                    <hr>
-                                    <#if bbinfo??>
-                                            ${bbinfo}
-                                    <#else>
-                                            Dieser Nutzer hat keine Biographie
-                                    </#if>
-                                </div>
-                                <div class="col-lg-12 mb-4">
+                               
                                     <ul class="mail_list list-group list-unstyled">
-                                        <h5 class="prempro">Beliebteste Beiträge:</h5>
+                                        <h5 class="prempro">Alle Beiträge von ${uname}:</h5>
                                         <#list conts>
                                             <#items as contss>
                                                 <li class="list-group-item">
@@ -53,8 +43,7 @@
                                             <h5 class="prempro">Keine Beiträge vorhanden</h4>
                                         </#list>
                                     </ul>
-                                </div>
-                              </div>
+                              
                            
                     </div>
                 </section>

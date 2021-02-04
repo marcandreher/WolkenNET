@@ -1,19 +1,9 @@
 <#include "base.html">
 <#include "snippets/profilebar.html">
                         <div class="content-panel">
-                            <div class="row">
-                                <div class="col-lg-12 mb-4 prempro">
-                                    <h5>Biographie:</h5>
-                                    <hr>
-                                    <#if bbinfo??>
-                                            ${bbinfo}
-                                    <#else>
-                                            Dieser Nutzer hat keine Biographie
-                                    </#if>
-                                </div>
-                                <div class="col-lg-12 mb-4">
+                               
                                     <ul class="mail_list list-group list-unstyled">
-                                        <h5 class="prempro">Beliebteste Beiträge:</h5>
+                                        <h5 class="prempro">Alle Kommentare von ${uname}:</h5>
                                         <#list conts>
                                             <#items as contss>
                                                 <li class="list-group-item">
@@ -31,14 +21,12 @@
                                                         </div>
                                                         <div class="media-body">
                                                             <div class="media-heading">
-                                                                <a href="/beitrag/${contss.sublink}/${contss.userid}"
-                                                                    class="m-r-10"> ${contss.sublink}</a>
+                                                                
                                                                
                                                                 
                                                                 <#if contss.locked=1><span class="badge bg-yellow"><i
                                                                             class="fas fa-eye-slash"></i></span></#if>
-                                                                            <span class="badge bg-red"><i
-                                                                                class="fas fa-eye"></i> ${contss.views}</span>
+                                                                            
                                                                 <small class="float-right text-muted"><time class="hidden-sm-down timeago"
                                                                         datetime="${contss.timestamp}" title="${contss.timestamp}">${contss.timestamp}</time><i
                                                                         class="zmdi zmdi-attachment-alt"></i> </small>
@@ -50,11 +38,10 @@
                                             </#items>
                                             <#else>
                                             <hr>
-                                            <h5 class="prempro">Keine Beiträge vorhanden</h4>
+                                            <h5 class="prempro">Keine Kommentare vorhanden</h4>
                                         </#list>
                                     </ul>
-                                </div>
-                              </div>
+                              
                            
                     </div>
                 </section>

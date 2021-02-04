@@ -17,46 +17,40 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-public class profilePage implements Route {
+public class profilePageBeiträge implements Route {
 	public Map<String, Object> m = new HashMap<>();
 
-	public profilePage() {
+	public profilePageBeiträge() {
 	}
 
 	public Object handle(Request request, Response response) {
-		m.put("l", 1);
+		m.put("l", 3);
 		try {
 			Permissions.hasPermissions(request.cookie("session"), this.m, response);
 			m.put("banner", "/img/banner/wolken2.jpg");
 			String userName = request.params("user").replaceAll("%20", " ");
-			m.put("titlebar", "Profil von " + userName);
+			m.put("titlebar", "Beiträge von " + userName);
 			String userSQL = "SELECT * FROM `users` WHERE username = ?";
 			ResultSet userRS = mysql.Query(userSQL, userName);
 			int userID = 0;
-			String perm = "";
+			String perm = null;
 			while (userRS.next()) {
 				userID = userRS.getInt("id");
-				perm = userRS.getInt("permissions") + "";
-				m.put("perm", userRS.getInt("permissions"));
+				perm = userRS.getString("permissions");
+				m.put("perm", Integer.parseInt(perm));
+				m.put("uname", userName);
 				m.put("auth", userRS.getString("authority"));
 				m.put("registered_on", userRS.getString("registered_on"));
 				m.put("last_login", userRS.getString("last_login"));
-				m.put("uname", userName);
-			}
-			String userExtraSQL = "SELECT * FROM `users_extra` WHERE `id` = ?";
-			ResultSet userExtraRS = mysql.Query(userExtraSQL, userID + "");
-			while (userExtraRS.next()) {
-				m.put("bbinfo", userExtraRS.getString("bbcode_text"));
 			}
 
-			// Best Clicked views
 			String lockedSQL = " AND `locked` = 0";
 			if (((String) m.get("permissions")).contains("10")) {
 				lockedSQL = " ";
 			}
 
 			String sql_count = "SELECT * FROM `contributions` WHERE `user_id` = ?" + lockedSQL
-					+ " ORDER BY `contributions`.`views` DESC LIMIT 8";
+					+ " ORDER BY `contributions`.`views` DESC";
 			ResultSet countset = mysql.Query(sql_count, new StringBuilder().append(userID).toString());
 			ArrayList<Contribution> contarr = new ArrayList<Contribution>();
 			while (countset.next()) {
@@ -82,7 +76,7 @@ public class profilePage implements Route {
 
 			this.m.put("conts", contarr);
 
-			Template template = App.cfg.getTemplate("profile.html");
+			Template template = App.cfg.getTemplate("profileList.html");
 			Writer out = new StringWriter();
 			template.process(this.m, out);
 			return out.toString();

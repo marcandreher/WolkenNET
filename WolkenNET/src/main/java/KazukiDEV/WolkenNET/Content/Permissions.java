@@ -1,7 +1,11 @@
 package KazukiDEV.WolkenNET.Content;
 
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
+import java.util.TimeZone;
 
 import KazukiDEV.WolkenNET.Main.App;
 import spark.Response;
@@ -37,6 +41,12 @@ public class Permissions {
 				map.put("useridst", new StringBuilder().append(rs.getInt("id")).toString());
 				map.put("permissions", rs.getString("permissions"));
 				map.put("loggedin", "true");
+				TimeZone tz = TimeZone.getTimeZone("UTC");
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+				df.setTimeZone(tz);
+				String nowAsISO = df.format(new Date());
+				//TODO: Last login update
+				mysql.Exec("UPDATE `users` SET `last_login`=? WHERE `id` = ?", nowAsISO, rs.getInt("id")+"");
 				return true;
 			}
 

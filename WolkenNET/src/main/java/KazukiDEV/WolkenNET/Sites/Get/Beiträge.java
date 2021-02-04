@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import KazukiDEV.WolkenNET.Content.BBCode;
+import KazukiDEV.WolkenNET.Content.Comment;
 import KazukiDEV.WolkenNET.Content.Permissions;
 import KazukiDEV.WolkenNET.Content.mysql;
 import KazukiDEV.WolkenNET.Main.App;
@@ -29,6 +31,7 @@ public class Beiträge implements Route {
 		String sql = "SELECT * FROM `contributions` WHERE `sublink` = ?";
 		ResultSet psql = mysql.Query(sql, cont);
 		try {
+			
 			while (psql.next()) {
 				if (psql.getInt("user_id") != Integer.parseInt(request.params(":user"))) {
 
@@ -72,6 +75,57 @@ public class Beiträge implements Route {
 					m.put("timestamp", psql.getString("timestamp"));
 					m.put("banner", "/img/banner/wolken4.jpg");
 				}
+				
+				//TODO: Load comments
+				String afterSQL = "";
+				int page = 0;
+				if (request.queryParams("page") != null) {
+					int offset = Integer.parseInt(request.queryParams("page")) * 10;
+					page = Integer.parseInt(request.queryParams("page"));
+					offset = offset - 10;
+					afterSQL = "LIMIT 10 OFFSET " + new StringBuilder().append(offset);
+				} else {
+					page = 1;
+					afterSQL = "LIMIT 10";
+				}
+				m.put("page", page);
+				
+				int pagesInt = 0;
+				String pages = "SELECT * FROM `comments` WHERE `cont_id` = ?";
+				ResultSet pages_rs = mysql.Query(pages, m.get("id").toString());
+				while (pages_rs.next()) {
+					pagesInt++;
+				}
+				int a = (((pagesInt + 9) / 10) * 10) / 10;
+				m.put("allpages", a);
+				m.put("pages", pagesInt);
+				
+				String lockedSQL = " AND `locked` = 0";
+				if (((String) m.get("permissions")).contains("10")) {
+					lockedSQL = " ";
+				}
+				
+				String commentsSQL = "SELECT * FROM `comments` WHERE `cont_id` = ?" + lockedSQL
+						+ " ORDER BY `comments`.`id` DESC " +afterSQL;
+				ResultSet commentsRS = mysql.Query(commentsSQL, m.get("id").toString());
+				ArrayList<Comment> cmntList = new ArrayList<Comment>();
+				while(commentsRS.next()) {
+					Comment cmnt = new Comment();
+					cmnt.setBbcode_text(BBCode.bbcode_th(commentsRS.getString("bbcode_text")));
+					cmnt.setID(commentsRS.getInt("id"));
+					cmnt.setLocked(commentsRS.getInt("locked"));
+					String cmntUserSQL = "SELECT * FROM `users` WHERE `id` = ?";
+					ResultSet cmntUserRS = mysql.Query(cmntUserSQL, commentsRS.getInt("user_id")+"");
+					while(cmntUserRS.next()) {
+						cmnt.setPerm(cmntUserRS.getInt("permissions")+"");
+						cmnt.setUsername(cmntUserRS.getString("username"));
+					}
+					cmnt.setTimestamp(commentsRS.getString("timestamp"));
+					cmntList.add(cmnt);
+				}
+				m.put("cmnt", cmntList);
+				
+				
 			}
 		} catch (Exception e1) {
 			e1.printStackTrace();

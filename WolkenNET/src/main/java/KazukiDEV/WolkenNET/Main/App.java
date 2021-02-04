@@ -24,6 +24,8 @@ import KazukiDEV.WolkenNET.Sites.Get.Therapien;
 import KazukiDEV.WolkenNET.Sites.Get.Tippsundtricks;
 import KazukiDEV.WolkenNET.Sites.Get.pageNotFound;
 import KazukiDEV.WolkenNET.Sites.Get.profilePage;
+import KazukiDEV.WolkenNET.Sites.Get.profilePageBeiträge;
+import KazukiDEV.WolkenNET.Sites.Get.profilePageComments;
 import KazukiDEV.WolkenNET.Sites.Get.AP.Dashboard;
 import KazukiDEV.WolkenNET.Sites.Get.AP.SystemEinstellungen;
 import KazukiDEV.WolkenNET.Sites.Get.AP.TopicManager;
@@ -114,7 +116,9 @@ public class App {
 		getroutes.put("/thema/:topic", new Themen());
 		getroutes.put("/beitrag/:cont/:user", new Beiträge());
 		getroutes.put("/profil/:user", new profilePage());
-
+		getroutes.put("/profil/:user/list", new profilePageBeiträge());
+		getroutes.put("/profil/:user/comments", new profilePageComments());
+		
 		postroutes.put("/register", new Register());
 		postroutes.put("/login", new Login());
 		postroutes.put("/add/contribution", new postContribution());

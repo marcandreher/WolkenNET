@@ -45,6 +45,54 @@
                     </div>
                 </div>
             </div>
+            <div class="container bootdey">
+                <div class="col-md-12 bootstrap snippets">
+                <#if loggedin = "true">
+                <div class="panel">
+                  <div class="panel-body">
+                    <textarea class="form-control" rows="2" placeholder="Was denkst du dazu?"></textarea>
+                    <div class="mar-top clearfix">
+                      <button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Teilen</button>
+                      
+                    </div>
+                  </div>
+                </div>
+                </#if>
+
+                <#include "snippets/pagination.html">
+                <#list cmnt>
+                <#items as comments>
+                <div class="panel">
+                    <div class="panel-body">
+                    <div class="media-block">
+                      <a class="media-left" href="/profil/${comments.username}"><img class="img-circle img-sm" alt="Profilblid" src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg"></a>
+                      <div class="media-body">
+                        <div class="mar-btm">
+                          <a href="/profil/${comments.username}" class="btn-link text-semibold media-heading box-inline">${comments.username}</a>
+                          <p class="text-muted text-sm"><i class="far fa-window-maximize"></i> - vom Browser aus - ${comments.timestamp}</p>
+                        </div>
+                        <p>${comments.bbcode_text}</p>
+                        <div class="pad-ver">
+                          <div class="btn-group">
+                            <a class="btn btn-sm btn-default btn-hover-success"><i class="fa fa-thumbs-up"></i></a>
+                            <a class="btn btn-sm btn-default btn-hover-danger"><i class="fa fa-thumbs-down"></i></a>
+                          </div>
+                        </div>
+                        
+                
+                      </div>
+                    </div>
+                   
+                </div>
+                </div>
+                </#items>
+                <#else>
+                    <h5 style="padding-top: 8px; padding-bottom: 8px;margin-left: 15px;">Keine Kommentare auf dieser Seite vorhanden</h5>
+            </#list>
+
+
+                <#include "snippets/pagination.html">
+                </div>
         </div>
     </div>
 <#include "footer.html">

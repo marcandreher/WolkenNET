@@ -60,13 +60,30 @@ $(document).ready(function () {
 
     $(function () {
         if ($('#edi').length == 0) {
-            $('textarea').bbcode();
-            $('body').append($('<div id="captcha_container" class="google-cpatcha"></div>'));
-            setTimeout(function () {
-            grecaptcha.render('captcha_container_post', {
-                'sitekey': recaptcha
-            });
-    }, 1000);
+            if(loggedin) {
+                editor = document.getElementById("edi");
+                m = false;
+                try {
+                    m = editor.classList.contains('bbcode-editor')
+                } catch (error) {
+                    
+                }
+                if(m) {
+                    
+                }else{
+                    $('textarea').bbcode();
+                    $('body').append($('<div id="captcha_container" class="google-cpatcha"></div>'));
+                    setTimeout(function () {
+                    grecaptcha.render('captcha_container_post', {
+                        'sitekey': recaptcha
+                    });
+                }, 1000);
+                }
+               
+                
+                
+            }
+            
         }
         if (!loggedin) {
             var userLang = navigator.language || navigator.userLanguage;
