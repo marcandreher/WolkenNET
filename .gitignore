@@ -1,6 +1,7 @@
 # WolkenNET Files
 *.json
 *.propeties
+sitemap.xml
 
 # Compiled class file
 *.class

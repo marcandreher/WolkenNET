@@ -77,6 +77,11 @@
         	<artifactId>slf4j-log4j12</artifactId>
         	<version>1.7.5</version>
     	</dependency>
+    	<dependency>
+		    <groupId>com.github.dfabulich</groupId>
+		    <artifactId>sitemapgen4j</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
         <dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

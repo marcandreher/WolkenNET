@@ -10,6 +10,7 @@ import KazukiDEV.WolkenNET.Config.Config;
 import KazukiDEV.WolkenNET.Config.u;
 import KazukiDEV.WolkenNET.Content.Color;
 import KazukiDEV.WolkenNET.Content.mysql;
+import KazukiDEV.WolkenNET.Content.sitemapGenerator;
 import KazukiDEV.WolkenNET.Sites.API.deleteContribution;
 import KazukiDEV.WolkenNET.Sites.API.lockContribution;
 import KazukiDEV.WolkenNET.Sites.Get.Beiträge;
@@ -54,6 +55,7 @@ public class App {
 	public static int sessionSQL = 0;
 
 	public static void main(String[] args) throws Exception {
+		
 		System.out.println(Color.CYAN
 				+ "           __    __  ________  ________                                                   \r\n"
 				+ "          /  \\  /  |/        |/        |                                                  \r\n"
@@ -76,6 +78,8 @@ public class App {
 				Integer.parseInt((new StringBuilder(String.valueOf(Config.getString("mysqlport")))).toString()));
 		Spark.port(Integer.parseInt(Config.getString("sparkport")));
 		Spark.ipAddress(Config.getString("ip"));
+		
+		new sitemapGenerator();
 
 		String log4jConfPath = "log4j.properties";
 		PropertyConfigurator.configure(log4jConfPath);
