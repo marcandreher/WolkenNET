@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row cn-profile">
             <div class="col-lg-12 cn-col">
-                <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="wrapper-content animated fadeInRight">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/${bclink}">${bcsite}</a></li>
@@ -34,9 +34,9 @@
                                         Achtung Löschungen können nicht rückgänig gemacht werden!
                                     </p>
                                     
-                                   <a type="button" class="btn btn-danger btn-sm btn-block" href="/ap/api/ban/user?id=${uid}"><i class="fas fa-lock"></i> Nutzer Sperren</a>
-                                    <a type="button" class="btn btn-outline-danger btn-sm btn-block" href="/ap/api/lock/contributions?id=${id}"><i class="fas fa-eye-slash"></i> Beitrag unsichtbar machen</a>
-                                    <a type="button" class="btn btn-warning btn-sm btn-block" href="/ap/api/delete/contribution?id=${id}"><i class="fas fa-trash-alt"></i> Beitrag löschen</a>
+                                   <a type="button" class="btn btn-danger btn-sm btn-block" onclick="safety('/ap/api/ban/user?id=${uid}')"><i class="fas fa-lock"></i> Nutzer Sperren</a>
+                                    <a type="button" class="btn btn-outline-danger btn-sm btn-block" onclick="safety('/ap/api/lock/contributions?id=${id}')"><i class="fas fa-eye-slash"></i> Beitrag unsichtbar machen</a>
+                                    <a type="button" class="btn btn-warning btn-sm btn-block" onclick="safety('/ap/api/delete/contribution?id=${id}')"><i class="fas fa-trash-alt"></i> Beitrag löschen</a>
                                     
                                 </div>
                             </div>
@@ -72,12 +72,18 @@
                           <p class="text-muted text-sm"><i class="far fa-window-maximize"></i> - vom Browser aus - ${comments.timestamp}</p>
                         </div>
                         <p>${comments.bbcode_text}</p>
+                        <#if loggedin = "true">
                         <div class="pad-ver">
                           <div class="btn-group">
-                            <a class="btn btn-sm btn-default btn-hover-success"><i class="fa fa-thumbs-up"></i></a>
-                            <a class="btn btn-sm btn-default btn-hover-danger"><i class="fa fa-thumbs-down"></i></a>
+                            <a class="btn btn-sm btn-default btn-hover-success"><i class="fa fa-thumbs-up"></i> - 0</a> 
+                            <#if permissions = "10">
+                            <a class="btn btn-sm btn-default btn-hover-success" onclick="safety('/ap/api/ban/user?id=${comments.userid}')"><i class="fas fa-lock"></i></a>
+                            <a class="btn btn-sm btn-default btn-hover-success" onclick="safety('/ap/api/lock/comments?id=${comments.ID}')"><i class="fas fa-eye-slash"></i></a>
+                            <a class="btn btn-sm btn-default btn-hover-success" onclick="safety('/ap/api/delete/comments?id=${comments.ID}')"><i class="fas fa-trash-alt"></i></a>
+                            </#if>
                           </div>
                         </div>
+                        </#if>
                         
                 
                       </div>

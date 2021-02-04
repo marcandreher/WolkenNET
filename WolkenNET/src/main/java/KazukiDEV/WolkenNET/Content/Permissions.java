@@ -14,7 +14,7 @@ public class Permissions {
 
 	public static boolean hasPermissions(String cookie, Map<String, Object> map, Response r) {
 		r.type("text/html");
-		App.sessionv++;
+		App.sessionViews++;
 		try {
 			String sql_settings = "SELECT * FROM `system_settings`";
 			ResultSet sql_rs = mysql.Query(sql_settings);

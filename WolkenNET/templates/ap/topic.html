@@ -29,7 +29,7 @@
                             <td>${tag.sublink}</td>
                             <td>${tag.groupid}</td>
                             <td>${tag.important}</td>
-                            <td><a href="/ap/topic/delete?id=${tag.ID}"><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></a> <a href="/ap/topic/edit?id=${tag.ID}"><button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button></a></td>
+                            <td><a onclick="safety('/ap/topic/delete?id=${tag.ID}')"><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></a> <a onclick="safety('/ap/topic/edit?id=${tag.ID}')"><button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button></a></td>
                           </tr>
 
                            </#items>

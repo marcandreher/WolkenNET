@@ -155,6 +155,12 @@ function logout() {
     location.reload();
 }
 
+function safety(forward) {
+    if (confirm('Diese Aktion wirklich ausführen?')) {
+        window.location.href = forward;
+    }
+}
+
 
 var qs = (function (a) {
     if (a == "") return {};

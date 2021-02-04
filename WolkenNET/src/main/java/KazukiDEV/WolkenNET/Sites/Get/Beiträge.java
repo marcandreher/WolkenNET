@@ -119,6 +119,7 @@ public class Beiträge implements Route {
 					while(cmntUserRS.next()) {
 						cmnt.setPerm(cmntUserRS.getInt("permissions")+"");
 						cmnt.setUsername(cmntUserRS.getString("username"));
+						cmnt.setUserid(commentsRS.getInt("user_id")+"");
 					}
 					cmnt.setTimestamp(commentsRS.getString("timestamp"));
 					cmntList.add(cmnt);

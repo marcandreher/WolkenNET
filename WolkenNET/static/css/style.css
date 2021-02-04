@@ -381,7 +381,7 @@ html, body {
   padding-bottom: 10px;
 }
 .wrapper {
-    
+  min-height: calc(80vh - 75px);
 }
 .login-title {
     padding-top: 10px;
@@ -414,20 +414,12 @@ html, body {
     font-weight: bold;
 }
 .footer{
-  
-  position: relative;
-  height: 25px;  margin-top: 345px;
-
-    text-align: center;
     color: white;
-   
-    box-shadow: 
-        inset 0px 8px 6px -10px rgb(0, 0, 0);
-
-        background: linear-gradient(to bottom, rgba(39,170,225,.8), rgba(28,117,188,.8));
-        background-size: cover;
+    background: linear-gradient(to bottom, rgba(39,170,225,.8), rgba(28,117,188,.8));
+    background-size: cover;
     text-decoration: none;
-    
+    margin-top: 10px;
+    padding-top: 10px;
 }
 
 .footer a {
@@ -904,6 +896,7 @@ body{
   }
   
   .view-account .content-panel .content-header-wrapper {
+    
   position: relative;
   margin-bottom: 30px
   }

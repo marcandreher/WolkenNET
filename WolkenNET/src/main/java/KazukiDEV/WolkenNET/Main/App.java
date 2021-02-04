@@ -22,6 +22,7 @@ import KazukiDEV.WolkenNET.Sites.Get.Telefonseelsorge;
 import KazukiDEV.WolkenNET.Sites.Get.Themen;
 import KazukiDEV.WolkenNET.Sites.Get.Therapien;
 import KazukiDEV.WolkenNET.Sites.Get.Tippsundtricks;
+import KazukiDEV.WolkenNET.Sites.Get.donationPage;
 import KazukiDEV.WolkenNET.Sites.Get.pageNotFound;
 import KazukiDEV.WolkenNET.Sites.Get.profilePage;
 import KazukiDEV.WolkenNET.Sites.Get.profilePageBeiträge;
@@ -49,7 +50,8 @@ public class App {
 	public static HashMap<String, Route> postroutes = new HashMap<>();
 	public static HashMap<String, Route> getroutes = new HashMap<>();
 
-	public static int sessionv = 0;
+	public static int sessionViews = 0;
+	public static int sessionSQL = 0;
 
 	public static void main(String[] args) throws Exception {
 		System.out.println(Color.CYAN
@@ -113,6 +115,7 @@ public class App {
 		getroutes.put("/klinikundaerzte", new KlinikUndÄrzte());
 		getroutes.put("/forenregeln", new Forenregeln());
 		getroutes.put("/404", new pageNotFound());
+		getroutes.put("/spenden", new donationPage());
 		getroutes.put("/thema/:topic", new Themen());
 		getroutes.put("/beitrag/:cont/:user", new Beiträge());
 		getroutes.put("/profil/:user", new profilePage());

@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import KazukiDEV.WolkenNET.Config.Config;
 import KazukiDEV.WolkenNET.Config.u;
+import KazukiDEV.WolkenNET.Main.App;
 
 public final class mysql {
 	private static Connection con = null;
@@ -52,6 +53,7 @@ public final class mysql {
 				stmt.setString(i + 1, args[i]);
 			if (Config.getString("debug").contains("true"))
 				System.out.println(u.mysql + stmt.toString());
+			App.sessionSQL++;
 			return stmt.executeQuery();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,6 +68,7 @@ public final class mysql {
 				stmt.setString(i + 1, args[i]);
 			if (Config.getString("debug").contains("true"))
 				System.out.println(u.mysql + stmt.toString());
+			App.sessionSQL++;
 			return stmt.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
