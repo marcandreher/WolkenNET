@@ -374,6 +374,16 @@ html, body {
     height: 100%;
     margin: 0;
 }
+.image-s {
+  height: 80px;
+  cursor:grab;
+}
+.image-s:hover {
+  border: 5px solid #555;
+}
+.image-s-active {
+  border: 5px solid #555;
+}
 .modal-ff {
   max-width: 350px;
 }

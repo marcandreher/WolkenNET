@@ -16,9 +16,19 @@ public class Contribution {
 
 	private String Perm;
 	
+	private String avatar;
+	
 	private int locked;
 	
 	private int views;
+	
+	public String setAvatar(String avatar) {
+		return this.avatar = avatar;
+	}
+	
+	public String getAvatar() {
+		return avatar;
+	}
 	
 	public int getViews() {
 		return views;

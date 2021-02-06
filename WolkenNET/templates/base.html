@@ -56,14 +56,18 @@
             <a class="dropdown-item" href="/klinikundaerzte"><i class="fas fa-briefcase-medical"></i> Klinik & Ärzte</a>
           </div>
         </li>
-        <#if permissions="10">
-          <li class="nav-item">
-            <a class="nav-link" data-turbolinks="false" href="/ap/dashboard">Adminverwaltung</a>
-          </li>
-        </#if>
+       
         <li class="nav-item">
           <a class="nav-link" href="/tippsundtricks">Tipps und Tricks</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/krankheiten_symptome">Krankheiten & Symptome</a>
+        </li>
+        <#if permissions="10">
+        <li class="nav-item">
+          <a class="nav-link" style="color:red;" data-turbolinks="false" href="/ap/dashboard">Adminverwaltung</a>
+        </li>
+      </#if>
       </ul>
       <#if loggedin=="false">
         <script>var loggedin = false;</script>
@@ -83,22 +87,22 @@
               <a class="nav-link dropdown-toggle profile-nav" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <h class="profile-nav <#if permissions="10">admin<#elseif permissions="9">rank-moderator</#if>">${username}</h><img
-        src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg" width="40"
+        src="/avatar/${avatar}.png" width="40"
         height="40" class="rounded-circle profile-img-nav">
       </a>
       <div class="dropdown-menu" aria-labelledby="userDropdown">
         <a class="dropdown-item" href="/profil/${username}">Profil</a>
-        <a class="dropdown-item" href="#">Einstellungen</a>
+        <a class="dropdown-item" href="/${username}/settings">Einstellungen</a>
         <div class="dropdown-divider own-divider"></div>
-        <a onclick="logout()" class="dropdown-item" href="#">Ausloggen</a>
+        <a href="/logout" class="dropdown-item">Ausloggen</a>
       </div>
       </li>
       <li class="nav-item dropdown">
         <div class="dropdown-menu" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="/profil/${username}">Profil</a>
-          <a class="dropdown-item" href="#">Einstellungen</a>
+          <a class="dropdown-item" href="/${username}/settings">Einstellungen</a>
           <div class="dropdown-divider own-divider"></div>
-          <a onclick="logout()" class="dropdown-item" href="#">Ausloggen</a>
+          <a href="/logout" class="dropdown-item">Ausloggen</a>
         </div>
       </li>
       </ul>

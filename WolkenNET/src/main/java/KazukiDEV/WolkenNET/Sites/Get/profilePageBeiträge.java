@@ -34,7 +34,9 @@ public class profilePageBeiträge implements Route {
 			ResultSet userRS = mysql.Query(userSQL, userName);
 			int userID = 0;
 			String perm = null;
+			String avatar = "1";
 			while (userRS.next()) {
+				avatar = userRS.getString("avatar");
 				userID = userRS.getInt("id");
 				perm = userRS.getString("permissions");
 				m.put("perm", Integer.parseInt(perm));
@@ -42,6 +44,7 @@ public class profilePageBeiträge implements Route {
 				m.put("auth", userRS.getString("authority"));
 				m.put("registered_on", userRS.getString("registered_on"));
 				m.put("last_login", userRS.getString("last_login"));
+				m.put("uavatar", userRS.getString("avatar"));
 			}
 
 			String lockedSQL = " AND `locked` = 0";
@@ -69,6 +72,7 @@ public class profilePageBeiträge implements Route {
 				cont.setViews(countset.getInt("views"));
 				cont.setUsername(userName);
 				cont.setUserid(userID + "");
+				cont.setAvatar(avatar);
 				cont.setPerm(perm);
 
 				contarr.add(cont);

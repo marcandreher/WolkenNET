@@ -1,0 +1,37 @@
+<#include "base.html">
+<#include "snippets/profilebar.html">
+            <div class="content-panel">
+                <p>Aufgrund des Artikel 17 ist das hochladen von eigenen Bildern nicht gestattet, eventuell wird sich das noch ändern</p>
+                <h5>Such dir einer der Standartprofilbilder aus:</h5>
+                  <img id='1' class="image-s <#if avatar = "1">image-s-active</#if>" src="/avatar/1.png">
+                  <img id='2' class="image-s <#if avatar = "2">image-s-active</#if>" src="/avatar/2.png">
+                  <img id='3' class="image-s <#if avatar = "3">image-s-active</#if>" src="/avatar/3.png">
+                  <img id='4' class="image-s <#if avatar = "4">image-s-active</#if>" src="/avatar/4.png">
+                  <img id='5' class="image-s <#if avatar = "5">image-s-active</#if>" src="/avatar/5.png">
+                  <img id='6' class="image-s <#if avatar = "6">image-s-active</#if>" src="/avatar/6.png">
+                  <img id='7' class="image-s <#if avatar = "7">image-s-active</#if>" src="/avatar/7.png">
+                  <img id='8' class="image-s <#if avatar = "8">image-s-active</#if>" src="/avatar/8.png">
+                  <img id='9' class="image-s <#if avatar = "9">image-s-active</#if>" src="/avatar/9.png">
+                  <img id='10' class="image-s <#if avatar = "10">image-s-active</#if>" src="/avatar/10.png">
+                  <img id='11' class="image-s <#if avatar = "11">image-s-active</#if>" src="/avatar/11.png">
+                  <img id='12' class="image-s <#if avatar = "12">image-s-active</#if>" src="/avatar/12.png">
+                  <img id='13' class="image-s <#if avatar = "13">image-s-active</#if>" src="/avatar/13.png">
+                  <img id='14' class="image-s <#if avatar = "14">image-s-active</#if>" src="/avatar/14.png">
+                  <img id='15' class="image-s <#if avatar = "15">image-s-active</#if>" src="/avatar/15.png">
+                  <img id='16' class="image-s <#if avatar = "16">image-s-active</#if>" src="/avatar/16.png">
+                  <script>
+                    $(".image-s").on('click', function(){
+                      $('.image-s').removeClass('image-s-active');
+                    $(this).addClass('image-s-active');
+                    sendToDatabase($(this).attr('id'));
+                  });
+
+                  function sendToDatabase(data) {
+                      
+                    document.location = "/api/pb/user?pb=" + data;
+                  }
+                  </script>
+            </div>
+        </div>
+    </div>
+    <#include "footer.html">

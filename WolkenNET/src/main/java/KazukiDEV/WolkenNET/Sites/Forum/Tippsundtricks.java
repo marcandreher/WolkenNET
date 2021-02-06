@@ -1,4 +1,4 @@
-package KazukiDEV.WolkenNET.Sites.Get;
+package KazukiDEV.WolkenNET.Sites.Forum;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -17,17 +17,17 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-public class Therapien implements Route {
+public class Tippsundtricks implements Route {
 	public Map<String, Object> m = new HashMap<>();
 
-	public Therapien() {
+	public Tippsundtricks() {
 	}
 
 	public Object handle(Request request, Response response) {
 		Permissions.hasPermissions(request.cookie("session"), this.m, response);
-		m.put("titlebar", "Therapien");
-		m.put("banner", "/img/banner/dreams.jpg");
-		
+		m.put("titlebar", "Tipps und Tricks");
+		m.put("banner", "/img/banner/tippsundtricks.jpg");
+
 		// Pagination
 		String afterSQL = "";
 		int page = 0;
@@ -44,18 +44,18 @@ public class Therapien implements Route {
 		try {
 			int pagesInt = 0;
 			String pages = "SELECT * FROM `topics` WHERE `groupid` = ?";
-			ResultSet pages_rs = mysql.Query(pages, 2 + "");
+			ResultSet pages_rs = mysql.Query(pages, 1 + "");
 			while (pages_rs.next()) {
 				pagesInt++;
 			}
 			int a = (((pagesInt + 9) / 10) * 10) / 10;
 			m.put("allpages", a);
 			m.put("pages", pagesInt);
-			ArrayList<Topic> tag_array = new ArrayList<Topic>();
-			String tags_sql = "SELECT * FROM `topics` WHERE `groupid` = ? "+afterSQL;
-			ResultSet tags_rs = mysql.Query(tags_sql, 2 + "");
-			while (tags_rs.next()) {
 
+			ArrayList<Topic> tag_array = new ArrayList<Topic>();
+			String tags_sql = "SELECT * FROM `topics` WHERE `groupid` = ? " + afterSQL;
+			ResultSet tags_rs = mysql.Query(tags_sql, 1 + "");
+			while (tags_rs.next()) {
 				Topic t = new Topic();
 				t.setID(tags_rs.getInt("id"));
 				t.setDescription(tags_rs.getString("description"));
@@ -75,11 +75,11 @@ public class Therapien implements Route {
 				tag_array.add(t);
 			}
 			this.m.put("tags", tag_array);
-		} catch (Exception exception) {
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-
 		try {
-			Template template = App.cfg.getTemplate("therapien.html");
+			Template template = App.cfg.getTemplate("tippsundtricks.html");
 			Writer out = new StringWriter();
 			template.process(this.m, out);
 			return out.toString();

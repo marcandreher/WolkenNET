@@ -34,7 +34,9 @@ public class profilePage implements Route {
 			ResultSet userRS = mysql.Query(userSQL, userName);
 			int userID = 0;
 			String perm = "";
+			String avatar = "1";
 			while (userRS.next()) {
+				avatar = userRS.getString("avatar");
 				userID = userRS.getInt("id");
 				perm = userRS.getInt("permissions") + "";
 				m.put("perm", userRS.getInt("permissions"));
@@ -42,6 +44,7 @@ public class profilePage implements Route {
 				m.put("registered_on", userRS.getString("registered_on"));
 				m.put("last_login", userRS.getString("last_login"));
 				m.put("uname", userName);
+				m.put("uavatar", userRS.getString("avatar"));
 			}
 			String userExtraSQL = "SELECT * FROM `users_extra` WHERE `id` = ?";
 			ResultSet userExtraRS = mysql.Query(userExtraSQL, userID + "");
@@ -76,6 +79,7 @@ public class profilePage implements Route {
 				cont.setUsername(userName);
 				cont.setUserid(userID + "");
 				cont.setPerm(perm);
+				cont.setAvatar(avatar);
 
 				contarr.add(cont);
 			}

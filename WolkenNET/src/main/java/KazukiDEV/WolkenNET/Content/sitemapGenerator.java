@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import com.redfin.sitemapgenerator.WebSitemapGenerator;
 
 import KazukiDEV.WolkenNET.Config.u;
+import KazukiDEV.WolkenNET.Sites.Forum.Medikamente;
+import KazukiDEV.WolkenNET.Sites.Forum.krankheitenUndSymptome;
 
 public class sitemapGenerator {
 	
@@ -21,6 +23,8 @@ public class sitemapGenerator {
 		wsg.addUrl("https://wolkennet.de/klinikundaerzte");
 		wsg.addUrl("https://wolkennet.de/forenregeln");
 		wsg.addUrl("https://wolkennet.de/spenden");
+		wsg.addUrl("https://wolkennet.de/medikamente");
+		wsg.addUrl("https://wolkennet.de/krankheiten_symptome");
 		
 		String topicSQL ="SELECT `sublink` FROM `topics`";
 		ResultSet topicRS = mysql.Query(topicSQL);

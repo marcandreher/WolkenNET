@@ -86,6 +86,7 @@ public class Themen implements Route {
 					String sql_author = "SELECT * FROM `users` WHERE `id` = ?";
 					ResultSet authorset = mysql.Query(sql_author, countset.getString("user_id"));
 					while (authorset.next()) {
+						cont.setAvatar(authorset.getString("avatar"));
 						cont.setUsername(authorset.getString("username"));
 						cont.setUserid(countset.getString("user_id"));
 						cont.setPerm(authorset.getString("permissions"));

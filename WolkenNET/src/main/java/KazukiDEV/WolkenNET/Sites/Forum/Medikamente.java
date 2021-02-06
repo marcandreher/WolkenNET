@@ -1,4 +1,4 @@
-package KazukiDEV.WolkenNET.Sites.Get;
+package KazukiDEV.WolkenNET.Sites.Forum;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -17,17 +17,17 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-public class Tippsundtricks implements Route {
+public class Medikamente implements Route {
 	public Map<String, Object> m = new HashMap<>();
 
-	public Tippsundtricks() {
+	public Medikamente() {
 	}
 
 	public Object handle(Request request, Response response) {
 		Permissions.hasPermissions(request.cookie("session"), this.m, response);
-		m.put("titlebar", "Tipps und Tricks");
-		m.put("banner", "/img/banner/tippsundtricks.jpg");
-
+		m.put("titlebar", "Medikamente");
+		m.put("banner", "/img/banner/medis.jpg");
+		
 		// Pagination
 		String afterSQL = "";
 		int page = 0;
@@ -44,17 +44,16 @@ public class Tippsundtricks implements Route {
 		try {
 			int pagesInt = 0;
 			String pages = "SELECT * FROM `topics` WHERE `groupid` = ?";
-			ResultSet pages_rs = mysql.Query(pages, 1 + "");
+			ResultSet pages_rs = mysql.Query(pages, 4 + "");
 			while (pages_rs.next()) {
 				pagesInt++;
 			}
 			int a = (((pagesInt + 9) / 10) * 10) / 10;
 			m.put("allpages", a);
 			m.put("pages", pagesInt);
-
 			ArrayList<Topic> tag_array = new ArrayList<Topic>();
-			String tags_sql = "SELECT * FROM `topics` WHERE `groupid` = ? " + afterSQL;
-			ResultSet tags_rs = mysql.Query(tags_sql, 1 + "");
+			String tags_sql = "SELECT * FROM `topics` WHERE `groupid` = ? "+afterSQL;
+			ResultSet tags_rs = mysql.Query(tags_sql, 4 + "");
 			while (tags_rs.next()) {
 				Topic t = new Topic();
 				t.setID(tags_rs.getInt("id"));
@@ -75,11 +74,11 @@ public class Tippsundtricks implements Route {
 				tag_array.add(t);
 			}
 			this.m.put("tags", tag_array);
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception exception) {
 		}
+
 		try {
-			Template template = App.cfg.getTemplate("tippsundtricks.html");
+			Template template = App.cfg.getTemplate("therapien.html");
 			Writer out = new StringWriter();
 			template.process(this.m, out);
 			return out.toString();

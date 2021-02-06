@@ -14,7 +14,7 @@
                         <div class="row col-8-home col-8-post">
                             <div class="col-lg-4 col-xl-4">
                                 <div class="card-box text-center">
-                                    <img src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg"
+                                    <img src="/avatar/${uavatar}.png"
                                         class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
                                     <a href="/profil/${author_name}"><h4 class="mb-0 author-text <#if perm = "10">admin</#if>">${author_name}</h4></a>
                                     <p class="text-muted">
@@ -50,10 +50,12 @@
                 <#if loggedin = "true">
                 <div class="panel">
                   <div class="panel-body">
-                    <textarea class="form-control" rows="2" placeholder="Was denkst du dazu?"></textarea>
-                    <div class="mar-top clearfix">
-                      <button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Teilen</button>
-                      
+                      <form action="/add/comment" method="POST">
+                        <textarea name="bbcode_text" class="form-control" rows="2" placeholder="Was denkst du dazu?"></textarea>
+                        <input type="hidden" name="cont_id" value="${id}">
+                        <div class="mar-top clearfix">
+                        <button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Teilen</button>
+                    </form>
                     </div>
                   </div>
                 </div>
@@ -65,7 +67,7 @@
                 <div class="panel">
                     <div class="panel-body">
                     <div class="media-block">
-                      <a class="media-left" href="/profil/${comments.username}"><img class="img-circle img-sm" alt="Profilblid" src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg"></a>
+                      <a class="media-left" href="/profil/${comments.username}"><img class="img-circle img-sm" alt="Profilblid" src="/avatar/${comments.avatar}.png"></a>
                       <div class="media-body">
                         <div class="mar-btm">
                           <a href="/profil/${comments.username}" class="btn-link text-semibold media-heading box-inline">${comments.username}</a>

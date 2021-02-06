@@ -150,11 +150,6 @@ function onSubmit(token) {
     document.getElementById("rl-form").submit();
 }
 
-function logout() {
-    document.cookie = "session" + '=; Max-Age=0'
-    location.reload();
-}
-
 function safety(forward) {
     if (confirm('Diese Aktion wirklich ausführen?')) {
         window.location.href = forward;

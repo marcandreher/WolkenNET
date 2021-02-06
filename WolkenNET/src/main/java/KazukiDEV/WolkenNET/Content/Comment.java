@@ -13,8 +13,18 @@ public class Comment {
 	private String Userid;
 
 	private String Perm;
+	
+	private String avatar;
 
 	private int locked;
+	
+	public String setAvatar(String avatar) {
+		return this.avatar = avatar;
+	}
+	
+	public String getAvatar() {
+		return avatar;
+	}
 
 	public int getLocked() {
 		return locked;

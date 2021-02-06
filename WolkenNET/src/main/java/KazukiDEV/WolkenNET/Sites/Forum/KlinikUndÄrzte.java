@@ -1,4 +1,4 @@
-package KazukiDEV.WolkenNET.Sites.Get;
+package KazukiDEV.WolkenNET.Sites.Forum;
 
 import java.io.IOException;
 import java.io.StringWriter;

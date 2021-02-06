@@ -5,7 +5,7 @@
                 <div class="module-inner">
                     <div class="side-bar">
                         <div class="user-info">
-                            <img class="img-profile img-circle img-responsive center-block" src="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg" alt="">
+                            <img class="img-profile img-circle img-responsive center-block" src="/avatar/${uavatar}.png" alt="">
                             <ul class="meta list list-unstyled">
                                 <li class="name <#if perm = 10>admin</#if>">${uname} </li>
                                     <label class="label label-info"><#if auth !="Kein Titel">${auth}</#if></label>
@@ -26,9 +26,10 @@
                                 <li <#if l = 1>class="active"</#if>><a href="/profil/${uname}"><span class="fa fa-user"></span> Profile</a></li>
                                 <li <#if l = 2>class="active"</#if>><a href="/profil/${uname}/comments"><span class="fas fa-comment"></span> Kommentare</a></li>
                                 <li <#if l = 3>class="active"</#if>><a href="/profil/${uname}/list"><span class="fas fa-mail-bulk"></span> Beiträge</a></li>
-                                
-                                <#if uname == username>
-                                    <li><a href="#"><span class="fas fa-cog"></span> Settings</a></li>
+                                <#if loggedin == "true">
+                                    <#if uname == username>
+                                        <li <#if l = 4>class="active"</#if>><a href="/${username}/settings"><span class="fas fa-cog"></span> Settings</a></li>
+                                    </#if>
                                 </#if>
                             </ul>
                         </nav>

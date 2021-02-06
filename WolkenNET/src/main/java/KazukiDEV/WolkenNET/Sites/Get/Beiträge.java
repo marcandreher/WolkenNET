@@ -44,6 +44,7 @@ public class Beiträge implements Route {
 						m.put("authority", psql2.getString("authority"));
 						m.put("id", psql.getInt("id"));
 						m.put("uid", psql2.getInt("id"));
+						m.put("uavatar", psql2.getString("avatar"));
 					}
 					String addview_sql = "UPDATE `contributions` SET `views` = `views` + 1 where `id` = ?";
 					mysql.Exec(addview_sql, new StringBuilder().append(psql.getInt("id")).toString());
@@ -120,6 +121,7 @@ public class Beiträge implements Route {
 						cmnt.setPerm(cmntUserRS.getInt("permissions")+"");
 						cmnt.setUsername(cmntUserRS.getString("username"));
 						cmnt.setUserid(commentsRS.getInt("user_id")+"");
+						cmnt.setAvatar(cmntUserRS.getString("avatar"));
 					}
 					cmnt.setTimestamp(commentsRS.getString("timestamp"));
 					cmntList.add(cmnt);
