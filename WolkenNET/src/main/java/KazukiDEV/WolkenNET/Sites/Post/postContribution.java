@@ -57,6 +57,7 @@ public class postContribution implements Route {
 		ResultSet checkRS = mysql.Query(checkSQL, title, uID);
 		try {
 			while(checkRS.next()) {
+				// TODO: Name schon vergeben
 				return null;
 			}
 			
@@ -76,7 +77,7 @@ public class postContribution implements Route {
 		}
 		
 		
-		
+		// TODO: Fehler zurückgeben
 		return null;
 
 	}

@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import com.redfin.sitemapgenerator.WebSitemapGenerator;
 
 import KazukiDEV.WolkenNET.Config.u;
-import KazukiDEV.WolkenNET.Sites.Forum.Medikamente;
-import KazukiDEV.WolkenNET.Sites.Forum.krankheitenUndSymptome;
 
 public class sitemapGenerator {
 	

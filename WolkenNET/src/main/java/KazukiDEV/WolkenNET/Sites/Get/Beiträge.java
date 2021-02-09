@@ -114,6 +114,7 @@ public class Beiträge implements Route {
 					Comment cmnt = new Comment();
 					cmnt.setBbcode_text(BBCode.bbcode_th(commentsRS.getString("bbcode_text")));
 					cmnt.setID(commentsRS.getInt("id"));
+					cmnt.setLikes(commentsRS.getInt("likes"));
 					cmnt.setLocked(commentsRS.getInt("locked"));
 					String cmntUserSQL = "SELECT * FROM `users` WHERE `id` = ?";
 					ResultSet cmntUserRS = mysql.Query(cmntUserSQL, commentsRS.getInt("user_id")+"");

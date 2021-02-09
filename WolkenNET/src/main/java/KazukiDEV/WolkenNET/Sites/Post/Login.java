@@ -29,13 +29,13 @@ public class Login implements Route {
 				return null;
 			}
 			
-		} catch (Exception e1) {
-			e1.printStackTrace();
+		} catch (Exception captchaError) {
+			captchaError.printStackTrace();
 		}
 
 		try {
-			String sql = "SELECT * FROM `users` WHERE `email` = ? AND `password_md5` = ?";
-			ResultSet rs = mysql.Query(sql, email, MD5(password));
+			String loginSQL = "SELECT * FROM `users` WHERE `email` = ? AND `password_md5` = ?";
+			ResultSet rs = mysql.Query(loginSQL, email, MD5(password));
 			int i = 0;
 			while (rs.next()) {
 				if (rs.getBoolean("banned") == true) {
@@ -44,7 +44,6 @@ public class Login implements Route {
 				}
 				i++;
 				response.cookie("session", rs.getString("session"));
-				// TODO: Perform last login
 				String lastLoginSQL = "UPDATE `users` SET `last_login`= ? WHERE `id` = ?";
 				TimeZone tz = TimeZone.getTimeZone("UTC");
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
@@ -76,6 +75,7 @@ public class Login implements Route {
 				sb.append(Integer.toHexString(array[i] & 0xFF | 0x100).substring(1, 3));
 			return sb.toString();
 		} catch (NoSuchAlgorithmException noSuchAlgorithmException) {
+			// TODO: Error listen
 			return null;
 		}
 	}

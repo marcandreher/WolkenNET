@@ -3,12 +3,10 @@ package KazukiDEV.WolkenNET.Sites.Get;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import KazukiDEV.WolkenNET.Content.BBCode;
-import KazukiDEV.WolkenNET.Content.Contribution;
 import KazukiDEV.WolkenNET.Content.Permissions;
 import KazukiDEV.WolkenNET.Content.mysql;
 import KazukiDEV.WolkenNET.Main.App;
@@ -33,6 +31,7 @@ public class profileSettings implements Route {
 			String userSQL = "SELECT * FROM `users` WHERE username = ?";
 			ResultSet userRS = mysql.Query(userSQL, userName);
 			int userID = 0;
+			@SuppressWarnings("unused")
 			String perm = "";
 			while (userRS.next()) {
 				userID = userRS.getInt("id");
@@ -43,6 +42,12 @@ public class profileSettings implements Route {
 				m.put("last_login", userRS.getString("last_login"));
 				m.put("uname", userName);
 				m.put("uavatar", userRS.getString("avatar"));
+			}
+			
+			String userExtraSQL = "SELECT * FROM `users_extra` WHERE `id` = ?";
+			ResultSet userExtraRS = mysql.Query(userExtraSQL, userID + "");
+			while (userExtraRS.next()) {
+				m.put("bbinfo", BBCode.bbcode(userExtraRS.getString("bbcode_text")));
 			}
 			
 			

@@ -5476,14 +5476,12 @@ body{
   margin-top: 15px;
 }
 
+.like-active {
+  color: blue;
+}
+
 @media (max-width: 991px) {
-    .col-stats {
-           box-sizing:initial;
-           margin: 3px!important;
-           flex: 0 0 100%!important;
-           max-width: 100%!important;
-           margin-bottom: 20px!important;
-    }
+    
     .col-8-post  {
       margin-bottom: 30px!important;
     }

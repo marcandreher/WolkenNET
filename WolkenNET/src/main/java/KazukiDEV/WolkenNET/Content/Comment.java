@@ -7,6 +7,8 @@ public class Comment {
 	private String Timestamp;
 
 	private String Bbcode_text;
+	
+	private String Sublink;
 
 	private String Username;
 
@@ -17,6 +19,24 @@ public class Comment {
 	private String avatar;
 
 	private int locked;
+	
+	private int likes;
+	
+	public int getLikes() {
+		return likes;
+	}
+
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+	
+	public String getSublink() {
+		return this.Sublink;
+	}
+
+	public void setSublink(String Sublink) {
+		this.Sublink = Sublink;
+	}
 	
 	public String setAvatar(String avatar) {
 		return this.avatar = avatar;

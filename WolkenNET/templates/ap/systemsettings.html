@@ -1,6 +1,6 @@
 <#include "base.html">
         <div class="col">
-            <form action="/ap/settings" method="POST">
+            <form action="/ap/settings" method="POST" accept-charset="UTF-8">
                 <div class="form-group">
                     <label for="exampleInputEmail1">ReCaptcha API Key</label>
                     <input type="text" name="recaptcha"class="form-control" value="${recaptcha}">
@@ -13,7 +13,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Home HTML Meldung</label>
-                    <input type="text" name="home_alert" class="form-control" value="${home_alert}">
+                    <input type="text" name="home_alert" class="form-control" value='${home_alert}'>
                     <small id="emailHelp" class="form-text text-muted">Kein BBCode erlaubt</small>
                   </div>
                   <div class="form-group">

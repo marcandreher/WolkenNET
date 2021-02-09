@@ -50,7 +50,7 @@
                 <#if loggedin = "true">
                 <div class="panel">
                   <div class="panel-body">
-                      <form action="/add/comment" method="POST">
+                      <form action="/add/comment" method="POST" accept-charset="UTF-8">
                         <textarea name="bbcode_text" class="form-control" rows="2" placeholder="Was denkst du dazu?"></textarea>
                         <input type="hidden" name="cont_id" value="${id}">
                         <div class="mar-top clearfix">
@@ -71,13 +71,13 @@
                       <div class="media-body">
                         <div class="mar-btm">
                           <a href="/profil/${comments.username}" class="btn-link text-semibold media-heading box-inline">${comments.username}</a>
-                          <p class="text-muted text-sm"><i class="far fa-window-maximize"></i> - vom Browser aus - ${comments.timestamp}</p>
+                          <p class="text-muted text-sm"><i class="far fa-window-maximize"></i> - vom Browser aus - <time class="hidden-sm-down timeago"
+                            datetime="${comments.timestamp}" title="${comments.timestamp}">${comments.timestamp}</time></p>
                         </div>
                         <p>${comments.bbcode_text}</p>
                         <#if loggedin = "true">
                         <div class="pad-ver">
                           <div class="btn-group">
-                            <a class="btn btn-sm btn-default btn-hover-success"><i class="fa fa-thumbs-up"></i> - 0</a> 
                             <#if permissions = "10">
                             <a class="btn btn-sm btn-default btn-hover-success" onclick="safety('/ap/api/ban/user?id=${comments.userid}')"><i class="fas fa-lock"></i></a>
                             <a class="btn btn-sm btn-default btn-hover-success" onclick="safety('/ap/api/lock/comments?id=${comments.ID}')"><i class="fas fa-eye-slash"></i></a>

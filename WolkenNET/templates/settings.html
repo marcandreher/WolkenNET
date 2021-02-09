@@ -1,7 +1,7 @@
 <#include "base.html">
 <#include "snippets/profilebar.html">
             <div class="content-panel">
-                <p>Aufgrund des Artikel 17 ist das hochladen von eigenen Bildern nicht gestattet, eventuell wird sich das noch ändern</p>
+                
                 <h5>Such dir einer der Standartprofilbilder aus:</h5>
                   <img id='1' class="image-s <#if avatar = "1">image-s-active</#if>" src="/avatar/1.png">
                   <img id='2' class="image-s <#if avatar = "2">image-s-active</#if>" src="/avatar/2.png">
@@ -19,6 +19,7 @@
                   <img id='14' class="image-s <#if avatar = "14">image-s-active</#if>" src="/avatar/14.png">
                   <img id='15' class="image-s <#if avatar = "15">image-s-active</#if>" src="/avatar/15.png">
                   <img id='16' class="image-s <#if avatar = "16">image-s-active</#if>" src="/avatar/16.png">
+                  <p>Aufgrund des Artikel 17 ist das hochladen von eigenen Bildern nicht gestattet, eventuell wird sich das noch ändern</p>
                   <script>
                     $(".image-s").on('click', function(){
                       $('.image-s').removeClass('image-s-active');
@@ -27,10 +28,17 @@
                   });
 
                   function sendToDatabase(data) {
-                      
                     document.location = "/api/pb/user?pb=" + data;
                   }
                   </script>
+
+                <h5>Wähle eine Biografie:</h5>
+                <form action="/update/bio" method="POST" accept-charset="UTF-8">
+                  <textarea name="bbcode_text" <#if bbinfo??>value="${bbinfo}"</#if> class="form-control" rows="5" placeholder="Erzähl was von dir"></textarea>
+                  <div class="mar-top clearfix">
+                  <button class="btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Speichern</button>
+                  </div>
+               </form>
             </div>
         </div>
     </div>

@@ -48,11 +48,6 @@
 		  <type>pom</type>
 		</dependency>
 		<dependency>
-		    <groupId>commons-fileupload</groupId>
-		    <artifactId>commons-fileupload</artifactId>
-		    <version>1.4</version>
-		</dependency>
-		<dependency>
             <groupId>com.moandjiezana.toml</groupId>
             <artifactId>toml4j</artifactId>
             <version>0.7.2</version>
@@ -86,6 +81,11 @@
 		    <groupId>com.github.dfabulich</groupId>
 		    <artifactId>sitemapgen4j</artifactId>
 		    <version>1.1.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.6</version>
 		</dependency>
         <dependency>
 			<groupId>mysql</groupId>

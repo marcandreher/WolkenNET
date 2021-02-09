@@ -24,6 +24,9 @@ public class Tippsundtricks implements Route {
 	}
 
 	public Object handle(Request request, Response response) {
+		
+		
+		
 		Permissions.hasPermissions(request.cookie("session"), this.m, response);
 		m.put("titlebar", "Tipps und Tricks");
 		m.put("banner", "/img/banner/tippsundtricks.jpg");

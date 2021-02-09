@@ -49,7 +49,7 @@ public class profilePage implements Route {
 			String userExtraSQL = "SELECT * FROM `users_extra` WHERE `id` = ?";
 			ResultSet userExtraRS = mysql.Query(userExtraSQL, userID + "");
 			while (userExtraRS.next()) {
-				m.put("bbinfo", userExtraRS.getString("bbcode_text"));
+				m.put("bbinfo", BBCode.bbcode(userExtraRS.getString("bbcode_text")));
 			}
 
 			// Best Clicked views

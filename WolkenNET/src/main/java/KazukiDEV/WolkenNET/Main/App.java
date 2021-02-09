@@ -11,6 +11,7 @@ import KazukiDEV.WolkenNET.Config.u;
 import KazukiDEV.WolkenNET.Content.Color;
 import KazukiDEV.WolkenNET.Content.mysql;
 import KazukiDEV.WolkenNET.Content.sitemapGenerator;
+import KazukiDEV.WolkenNET.Sites.API.banUser;
 import KazukiDEV.WolkenNET.Sites.API.deleteContribution;
 import KazukiDEV.WolkenNET.Sites.API.lockContribution;
 import KazukiDEV.WolkenNET.Sites.API.setProfilePicture;
@@ -33,13 +34,16 @@ import KazukiDEV.WolkenNET.Sites.Get.profilePage;
 import KazukiDEV.WolkenNET.Sites.Get.profilePageBeiträge;
 import KazukiDEV.WolkenNET.Sites.Get.profilePageComments;
 import KazukiDEV.WolkenNET.Sites.Get.profileSettings;
+import KazukiDEV.WolkenNET.Sites.Get.verweise;
 import KazukiDEV.WolkenNET.Sites.Get.AP.Dashboard;
 import KazukiDEV.WolkenNET.Sites.Get.AP.SystemEinstellungen;
 import KazukiDEV.WolkenNET.Sites.Get.AP.TopicManager;
+import KazukiDEV.WolkenNET.Sites.Get.AP.UserManager;
 import KazukiDEV.WolkenNET.Sites.Post.Login;
 import KazukiDEV.WolkenNET.Sites.Post.Register;
 import KazukiDEV.WolkenNET.Sites.Post.postComment;
 import KazukiDEV.WolkenNET.Sites.Post.postContribution;
+import KazukiDEV.WolkenNET.Sites.Post.saveBio;
 import KazukiDEV.WolkenNET.Sites.Post.AP.HandleSettings;
 import KazukiDEV.WolkenNET.Sites.Post.AP.HandleTopic;
 import freemarker.template.Configuration;
@@ -110,11 +114,12 @@ public class App {
 		getroutes.put("/ap/topic/delete", new TopicManager("delete"));
 		getroutes.put("/ap/topic/create", new TopicManager("create"));
 		getroutes.put("/ap/topic/edit", new TopicManager("edit"));
+		getroutes.put("/ap/user", new UserManager(""));
 
 		// API
 		getroutes.put("/ap/api/delete/contribution", new deleteContribution());
 		getroutes.put("/ap/api/lock/contributions", new lockContribution());
-		getroutes.put("/ap/api/ban/user", new lockContribution());
+		getroutes.put("/ap/api/ban/user", new banUser());
 		getroutes.put("/api/pb/user", new setProfilePicture());
 		
 		getroutes.put("/telefon-seelsorge", new Telefonseelsorge());
@@ -130,6 +135,7 @@ public class App {
 		
 		getroutes.put("/forenregeln", new Forenregeln());
 		getroutes.put("/404", new pageNotFound());
+		getroutes.put("/verweise", new verweise());
 		getroutes.put("/support", new donationPage());
 		getroutes.put("/logout", new logout());
 		getroutes.put("/thema/:topic", new Themen());
@@ -143,6 +149,7 @@ public class App {
 		postroutes.put("/login", new Login());
 		postroutes.put("/add/contribution", new postContribution());
 		postroutes.put("/add/comment", new postComment());
+		postroutes.put("/update/bio", new saveBio());
 
 		postroutes.put("/ap/topic", new HandleTopic());
 		postroutes.put("/ap/settings", new HandleSettings());

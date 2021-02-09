@@ -22,23 +22,62 @@ public class Dashboard implements Route {
 	public Dashboard() {
 	}
 
-	public Object handle(Request request, Response response) {
+	public Object handle(Request request, Response response) throws Exception {
 		Permissions.hasPermissions(request.cookie("session"), this.m, response);
 		m.put("titlebar", "AP Dashboard");
 		m.put("sessionviews", App.sessionViews + "");
 		m.put("sessionsql", App.sessionSQL + "");
 		
-		String registered_users = "SELECT * FROM `users`";
+		String registeredUsersSQL = "SELECT * FROM `users`";
 		int users = 0;
 		try {
-			ResultSet up_next_rs = mysql.Query(registered_users);
+			ResultSet up_next_rs = mysql.Query(registeredUsersSQL);
 			while (up_next_rs.next()) {
 				users++;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		m.put("registered", new StringBuilder().append(users).toString());
+		m.put("registered", users +"");
+		
+		String topicSQL = "SELECT * FROM `topics`";
+		int topics = 0;
+		try {
+			ResultSet up_next_rs = mysql.Query(topicSQL);
+			while (up_next_rs.next()) {
+				topics++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		m.put("topics", topics +"");
+		
+		String contSQL = "SELECT * FROM `contributions`";
+		int conts = 0;
+		try {
+			ResultSet up_next_rs = mysql.Query(contSQL);
+			while (up_next_rs.next()) {
+				conts++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		m.put("conts", conts +"");
+		
+		String commentSQL = "SELECT * FROM `comments`";
+		int comments = 0;
+		try {
+			ResultSet up_next_rs = mysql.Query(commentSQL);
+			while (up_next_rs.next()) {
+				comments++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		m.put("comments", comments +"");
+		
+		
+		
 
 		try {
 			Template template = App.cfg.getTemplate("/ap/dashboard.html");

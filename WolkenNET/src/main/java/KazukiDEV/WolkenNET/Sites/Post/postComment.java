@@ -11,7 +11,6 @@ import java.util.TimeZone;
 
 import KazukiDEV.WolkenNET.Content.Permissions;
 import KazukiDEV.WolkenNET.Content.mysql;
-import KazukiDEV.WolkenNET.Content.reCaptcha;
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -26,22 +25,6 @@ public class postComment implements Route {
 			//TODO: Login Fenster öffnen
 			response.redirect("/");
 			return null;
-		}
-		
-		try {
-			Boolean recaptcha = reCaptcha.handleCaptcha(request.queryParams("g-recaptcha-response"));
-			if(recaptcha == false) {
-				String forwardSQL = "SELECT * FROM `contributions` WHERE `id` = ?";
-				ResultSet forwardRS = mysql.Query(forwardSQL, request.queryParams("cont_id"));
-				while(forwardRS.next()) {
-					String link = forwardRS.getString("sublink").replaceAll(" ", "%20");
-					response.redirect("/beitrag/" + link + "/" + forwardRS.getString("user_id"));
-					return null;
-				}
-			}
-			
-		} catch (Exception e1) {
-			e1.printStackTrace();
 		}
 		
 		String bbcode_text = request.queryParams("bbcode_text");

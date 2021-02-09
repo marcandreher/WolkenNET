@@ -23,8 +23,6 @@ public class banUser implements Route {
 			return null;
 		}
 
-		// TODO: Check if id is id
-
 		String uID = request.queryParams("uname");
 		try {
 			Moderation.BanUser(uID);
@@ -32,8 +30,8 @@ public class banUser implements Route {
 			e.printStackTrace();
 		}
 
-		// TODO: Weiterleiten
-		return "Nutzer wurde gebannt";
+		response.redirect("/ap/user");
+		return null;
 
 	}
 }

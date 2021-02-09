@@ -13,19 +13,18 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-public class donationPage implements Route {
+public class verweise implements Route {
 	public Map<String, Object> m = new HashMap<>();
 
-	public donationPage() {
+	public verweise() {
 	}
 
 	public Object handle(Request request, Response response) {
 		Permissions.hasPermissions(request.cookie("session"), this.m, response);
-		m.put("titlebar", "Unterstütze dem Projekt");
-		m.put("banner", "/img/banner/wolken2.jpg");
-
+		m.put("titlebar", "Verweise");
+		m.put("banner", "/img/banner/team.jpg");
 		try {
-			Template template = App.cfg.getTemplate("spenden.html");
+			Template template = App.cfg.getTemplate("verweise.html");
 			Writer out = new StringWriter();
 			template.process(this.m, out);
 			return out.toString();

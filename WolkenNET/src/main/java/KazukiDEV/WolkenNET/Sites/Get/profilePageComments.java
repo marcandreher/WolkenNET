@@ -71,6 +71,9 @@ public class profilePageComments implements Route {
 				cont.setUsername(userName);
 				cont.setUserid(userID + "");
 				cont.setPerm(perm);
+				String contributionSQL = "SELECT `sublink` FROM `contributions` WHERE `id` = ?";
+				ResultSet contributionRS = mysql.Query(contributionSQL, countset.getInt("cont_id")+ "");
+				while(contributionRS.next()) cont.setSublink(contributionRS.getString("sublink"));
 				cont.setAvatar(avatar);
 				contarr.add(cont);
 			}

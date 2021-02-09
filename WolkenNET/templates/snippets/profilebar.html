@@ -26,6 +26,7 @@
                                 <li <#if l = 1>class="active"</#if>><a href="/profil/${uname}"><span class="fa fa-user"></span> Profile</a></li>
                                 <li <#if l = 2>class="active"</#if>><a href="/profil/${uname}/comments"><span class="fas fa-comment"></span> Kommentare</a></li>
                                 <li <#if l = 3>class="active"</#if>><a href="/profil/${uname}/list"><span class="fas fa-mail-bulk"></span> Beiträge</a></li>
+                                
                                 <#if loggedin == "true">
                                     <#if uname == username>
                                         <li <#if l = 4>class="active"</#if>><a href="/${username}/settings"><span class="fas fa-cog"></span> Settings</a></li>
